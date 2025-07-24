@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Roy's Invest | Investment Solutions & Financial Planning | Where Investment Meets Trust</title>
-  <meta name="description" content="">
   <meta name="description" content="Roy's Invest: Your trusted partner for comprehensive investment solutions in Kochi, Kerala. Where investment meets trust, we offer expert guidance on LIC policies, mutual funds, and personalized financial planning. Secure your future with us.">
 
   <!-- Favicons -->
@@ -31,11 +30,14 @@
 
 <body class="index-page">
 
-@include('partials.navbar')
+@include('users.partials.navbar')
 
   <main class="main">
     @yield('content')
  </main>
+
+<!-- footer -->
+@include('users.partials.footer ')
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

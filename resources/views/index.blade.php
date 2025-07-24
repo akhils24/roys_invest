@@ -7,7 +7,7 @@
       <img src="{{ asset('assets/img/hero-bg.jpg')}}" alt="" data-aos="fade-in">
 
       <div class="container d-flex flex-column align-items-center text-center">
-        <h2 data-aos="fade-up" data-aos-delay="100">Welcome to Our Website</h2>
+        <h2 data-aos="fade-up" data-aos-delay="100">Roy's Invest: Where Investment Meets Trust</h2>
         <p data-aos="fade-up" data-aos-delay="200">We are team of talented designers making websites with Bootstrap</p>
         <div data-aos="fade-up" data-aos-delay="300">
           <a href="{{ asset('https://www.youtube.com/watch?v=Y7f98aduVJ8')}}" class="glightbox pulsating-play-btn"></a>

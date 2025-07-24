@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - KnightOne Bootstrap Template</title>
+  <title>Roy's Invest | Investment Solutions & Financial Planning | Where Investment Meets Trust</title>
   <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Roy's Invest: Your trusted partner for comprehensive investment solutions in Kochi, Kerala. Where investment meets trust, we offer expert guidance on LIC policies, mutual funds, and personalized financial planning. Secure your future with us.">
 
   <!-- Favicons -->
   <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">

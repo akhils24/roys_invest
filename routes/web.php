@@ -14,3 +14,9 @@ Route::get('/admin', function () {
 Route::get('/blog', function () {
     return view('users.blog');
 })->name('blog'); // ✅ Already named 'blog'
+
+use Illuminate\Support\Str;
+
+Route::get('/blog/{slug}', function ($slug) {
+    return view('users.blog-detail', ['slug' => $slug]);
+});

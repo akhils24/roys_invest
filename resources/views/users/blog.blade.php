@@ -26,6 +26,7 @@
       <div class="row gy-4">
 
         @php
+          use Illuminate\Support\Str;
           $posts = [
             ['img' => 'blog-1.jpg', 'category' => 'Politics', 'title' => 'Dolorum optio tempore voluptas dignissimos', 'author_img' => 'blog-author.jpg', 'author' => 'Maria Doe', 'date' => '2022-01-01'],
             ['img' => 'blog-2.jpg', 'category' => 'Sports', 'title' => 'Nisi magni odit consequatur autem nulla dolorem', 'author_img' => 'blog-author-2.jpg', 'author' => 'Allisa Mayer', 'date' => '2022-06-05'],
@@ -37,6 +38,9 @@
         @endphp
 
         @foreach ($posts as $post)
+        @php
+          $slug = Str::slug($post['title']);
+        @endphp
         <div class="col-lg-4">
           <article>
             <div class="post-img">
@@ -44,7 +48,7 @@
             </div>
             <p class="post-category">{{ $post['category'] }}</p>
             <h2 class="title">
-              <a href="#">{{ $post['title'] }}</a>
+              <a href="{{ url('/blog/' . $slug) }}">{{ $post['title'] }}</a>
             </h2>
             <div class="d-flex align-items-center">
               <img src="{{ asset('assets/img/blog/' . $post['author_img']) }}" alt="" class="img-fluid post-author-img flex-shrink-0">

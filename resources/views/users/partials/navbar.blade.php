@@ -2,7 +2,7 @@
 <div class="container position-relative d-flex align-items-center justify-content-between">
 
     <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-    <!-- <img src="assets/img/logo.png" alt=""> -->
+    {{-- <img src="{{asset('assets/img/logo background.png')}}" alt=""> --}}
     <h1 class="sitename">ROY'S INVEST</h1>
     </a>
 

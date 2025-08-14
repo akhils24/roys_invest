@@ -8,8 +8,7 @@
   <meta name="description" content="Roy's Invest: Your trusted partner for comprehensive investment solutions in Kochi, Kerala. Where investment meets trust, we offer expert guidance on LIC policies, mutual funds, and personalized financial planning. Secure your future with us.">
 
   <!-- Favicons -->
-  <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('assets/img/logo background.png') }}" rel="icon">
 
   <!-- Fonts -->
   <link href="{{ asset('https://fonts.googleapis.com') }}" rel="preconnect">

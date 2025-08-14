@@ -20,5 +20,3 @@ use Illuminate\Support\Str;
 Route::get('/blog/{slug}', function ($slug) {
     return view('users.blog-detail', ['slug' => $slug]);
 });
-
-

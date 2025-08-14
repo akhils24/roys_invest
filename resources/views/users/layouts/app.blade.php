@@ -24,6 +24,45 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+  <style>
+    /* Common styles for both buttons */
+.scroll-top,
+.whatsapp-btn {
+  position: fixed;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: #007bff; /* Blue for scroll-top */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+/* Scroll to Top Button (Positioned at Bottom-Right) */
+.scroll-top {
+  bottom: 90px; /* Places it above WhatsApp button */
+  background: #007bff;
+}
+
+/* WhatsApp Button (Positioned at Bottom-Right) */
+.whatsapp-btn {
+  bottom: 70px;
+  background: #25D366; /* WhatsApp Green */
+}
+
+/* Hover Effects */
+.scroll-top:hover,
+.whatsapp-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+  </style>
 
 </head>
 
@@ -36,11 +75,17 @@
  </main>
 
 <!-- footer -->
-@include('users.partials.footer ')
+{{-- @include('users.partials.footer ') --}}
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" id="scroll-top" class="scroll-top">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
 
+<!-- WhatsApp Button -->
+<a href="#" id="whatsapp-btn" class="whatsapp-btn">
+  <i class="bi bi-whatsapp"></i>
+</a>
   <!-- Preloader -->
   <div id="preloader"></div>
 
@@ -56,6 +101,22 @@
 
   <!-- Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
+  <script>
+    // Smooth scroll to top
+document.getElementById('scroll-top').addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// WhatsApp link (optional: replace # with your WhatsApp URL)
+document.getElementById('whatsapp-btn').addEventListener('click', (e) => {
+  e.preventDefault();
+  window.open('https://wa.me/yournumber', '_blank');
+});
+  </script>
 
 </body>
 

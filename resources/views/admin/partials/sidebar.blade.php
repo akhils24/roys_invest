@@ -28,16 +28,16 @@
     <div class="sidebar-content">
     <ul class="nav nav-secondary">
         <li class="nav-item active">
-        <a href="/" class="collapsed" aria-expanded="false"><i class="fas fa-home"></i><p>Dashboard</p></a>
+        <a href="/dash" class="collapsed" aria-expanded="false"><i class="fas fa-home"></i><p>Dashboard</p></a>
         </li>
         <li class="nav-section">
         <span class="sidebar-mini-icon">
             <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Membership Management</h4>
+        <h4 class="text-section">Content Management</h4>
         </li>
         <li class="nav-item">
-            <a  href="/register"> <i class="fas fa-address-book"></i> <p>Customer Registeration</p></a>
+            <a  href="/admin-blogs"> <i class="fas fa-address-book"></i> <p>Blog Management</p></a>
         </li>
         <li class="nav-item">
             <a  href="/custview"> <i class="fab fa-slideshare"></i> <p>Customer Details</p></a>

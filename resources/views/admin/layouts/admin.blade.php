@@ -33,6 +33,9 @@
       });
     </script>
 
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{ asset('admin/css/plugins.min.css')}}" />
@@ -65,6 +68,8 @@
     <script src="{{ asset('admin/js/core/jquery-3.7.1.min.js')}}"></script>
     <script src="{{ asset('admin/js/core/popper.min.js')}}"></script>
     <script src="{{ asset('admin/js/core/bootstrap.min.js')}}"></script>
+    
+    @stack('scripts')
 
     <!-- jQuery Scrollbar -->
     <script src="{{ asset('admin/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\blog;
 use Illuminate\Http\Request;
 
+use function Symfony\Component\String\b;
+
 class BlogController extends Controller
 {
     /**
@@ -12,7 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs=blog::all();
+        return view("admin.blogs",compact("blogs"));
     }
 
     /**
@@ -20,7 +23,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.addblogs");
     }
 
     /**
@@ -28,7 +31,25 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'   => 'required|string|max:255',
+            'content' => 'required|string',
+            'img1'    => 'required|image|mimes:jpg,jpeg,png,gif',
+            'img2'    => 'nullable|image|mimes:jpg,jpeg,png,gif',
+        ]);
+
+        $image1Path = $request->file('img1')->store('blogs', 'public');
+        $image2Path = $request->file('img2') ? $request->file('img2')->store('blogs', 'public') : null;
+
+        blog::create([
+            'title'   => $request->input('title'),
+            'content' => $request->input('content'),
+            'author'  => 'Admin', // You can modify this to get the actual author's name
+            'image1'  => $image1Path,
+            'image2'  => $image2Path,
+        ]);
+        return redirect()->route('admin-blogs')->with('success','Blog Updated Successfully');
+
     }
 
     /**
@@ -63,6 +84,3 @@ class BlogController extends Controller
         //
     }
 }
-
-  git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"

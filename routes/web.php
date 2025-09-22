@@ -30,4 +30,7 @@ Route::get('/blog/{slug}', function ($slug) {
 
 // admin side management
 
-Route::get('/admin-blogs',[BlogController::class,'index'])->name('admin-blogs');
+Route::get('/admin-blogs',[BlogController::class,'index'])->name('admin.blogs');
+Route::get('/addblogs',[BlogController::class,'create'])->name('admin.addblogs');
+Route::post('/addblogs',[BlogController::class,'store'])->name('admin.createblogs');
+Route::get('editblogs',[BlogController::class,'edit'])->name('admin.editblogs');

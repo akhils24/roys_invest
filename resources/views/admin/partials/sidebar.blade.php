@@ -48,6 +48,9 @@
          <li class="nav-item">
             <a  href="/inactivecust"> <i class="fab fa-odnoklassniki"></i> <p>Inactive Customers</p></a>
         </li>
+        <li class="nav-item">
+            <a  href="/admin/gallery"> <i class="fas fa-images"></i> <p>Gallery</p></a>
+        </li>
     </ul>
     </div>
 </div>

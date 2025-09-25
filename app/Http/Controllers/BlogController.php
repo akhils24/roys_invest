@@ -48,7 +48,7 @@ class BlogController extends Controller
             'image1'  => $image1Path,
             'image2'  => $image2Path,
         ]);
-        return redirect()->route('admin-blogs')->with('success','Blog Updated Successfully');
+        return redirect()->route('admin.blogs')->with('success','Blog Updated Successfully');
 
     }
 

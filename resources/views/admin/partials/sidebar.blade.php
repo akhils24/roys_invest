@@ -28,7 +28,7 @@
     <div class="sidebar-content">
     <ul class="nav nav-secondary">
         <li class="nav-item active">
-        <a href="/dash" class="collapsed" aria-expanded="false"><i class="fas fa-home"></i><p>Dashboard</p></a>
+        <a href="/login" class="collapsed" aria-expanded="false"><i class="fas fa-home"></i><p>Dashboard</p></a>
         </li>
 
         <li class="nav-section">
@@ -43,31 +43,11 @@
         </li>
 
         <li class="nav-item">
-            <a href="/custview"> <i class="fab fa-slideshare"></i> <p>Customer Details</p></a>
+            <a  href="{{ route('admin.services') }}"> <i class="fas fa-address-book"></i> <p>Services Management</p></a>
         </li>
 
         <li class="nav-item">
-            <a href="/paydtls"> <i class="fab fa-cc-visa"></i> <p>Payment Details</p></a>
-        </li>
-
-        <li class="nav-item">
-            <a href="/inactivecust"> <i class="fab fa-odnoklassniki"></i> <p>Inactive Customers</p></a>
-        </li>
-
-        <!-- Gallery Section - 2 Items -->
-        <li class="nav-section">
-        <span class="sidebar-mini-icon">
-            <i class="fa fa-ellipsis-h"></i>
-        </span>
-        <h4 class="text-section">Gallery</h4>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{ route('admin.gallery') }}"> <i class="fas fa-images"></i> <p>Gallery Management</p></a>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{ route('admin.cat_gallery') }}"> <i class="fas fa-layer-group"></i> <p>Category Management</p></a>
+            <a  href="{{ route('admin.subservices') }}"> <i class="fas fa-address-book"></i> <p>Sub-Services Management</p></a>
         </li>
 
     </ul>

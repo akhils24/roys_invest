@@ -19,8 +19,8 @@
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4" >
             <div class="ms-md-auto py-2 py-md-0">
-                <form action="{{ route('admin.addblogs') }}" method="GET" class="mb-3">
-                    <button type="submit" class="btn btn-primary btn-round">Add Blogs</button>
+                <form action="{{ route('admin.addservices') }}" method="GET" class="mb-3">
+                    <button type="submit" class="btn btn-primary btn-round">Add Services</button>
                 </form>
             </div>
         </div>
@@ -28,7 +28,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">BLOGS</h4>
+                        <h4 class="card-title">SERVICES</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -36,12 +36,9 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th style="width: 10%">Title</th>
-                                    {{-- <th style="width: 15%">Content</th> --}}
-                                    <th>Category</th>
-                                    <th>Author</th>
-                                    <th>Image 1</th>
-                                    <th>Image 2</th>
+                                    <th style="width: 10%">Name</th>
+                                    <th>Description</th>
+                                    <th>Image </th>
                                     <th>Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -50,43 +47,37 @@
                             <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th style="width: 10%">Title</th>
-                                    {{-- <th>Content</th> --}}
-                                    <th>Category</th>
-                                    <th>Author</th>
-                                    <th>Image 1</th>
-                                    <th>Image 2</th>
+                                    <th style="width: 10%">Name</th>
+                                    <th>Description</th>
+                                    <th>Image </th>
                                     <th>Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @forelse ($blogs as $blog)
+                                @forelse ($services as $service)
                                 <tr>
-                                    <td>{{ $blog->id }}</td>
-                                    <td>{{ $blog->title }}</td>
-                                    <td>{{ $blog->category }}</td>
-                                    {{-- <td>{!! $blog->content !!}</td> --}}
-                                    <td>{{ $blog->author }}</td>
-                                    <td><img src="{{ asset('storage/' . $blog->image1) }}" alt="Blog Image 1" width="150"></td>
-                                    <td><img src="{{ asset('storage/' . $blog->image2) }}" alt="Blog Image 2" width="150"></td>
-                                    <td>{{ $blog->created_at }}</td>
-                                    <td>{{ $blog->status ? 'Active' : 'Inactive' }}</td>
+                                    <td>{{ $service->id }}</td>
+                                    <td>{{ $service->name }}</td>
+                                    <td>{{ $service->description }}</td>
+                                    <td><img src="{{ asset('storage/' . $service->image) }}" alt="Blog Image 1" width="150"></td>
+                                    <td>{{ $service->created_at }}</td>
+                                    <td>{{ $service->status ? 'Active' : 'Inactive' }}</td>
                                     <td>
                                         <div class="form-button-action">
-                                            <a href="{{ route('admin.editblogs',$blog->id) }}" data-bs-toggle="tooltip" title="Edit" class="btn btn-link btn-primary btn-lg"> <i class="fa fa-edit"></i> </a>                                            
-                                            @if ($blog->status)
-                                                <a href="{{ route('admin.statusblogs',$blog->id) }}" class="btn btn-link btn-danger" data-bs-toggle="tooltip" title="Deactivate" style="padding-top: 15px;"> <i class="fa fa-times"></i> </a>
+                                            <a href="{{ route('admin.editservices',$service->id) }}" data-bs-toggle="tooltip" title="Edit" class="btn btn-link btn-primary btn-lg"> <i class="fa fa-edit"></i> </a>                                            
+                                            @if ($service->status)
+                                                <a href="{{ route('admin.statusservices',$service->id) }}" class="btn btn-link btn-danger" data-bs-toggle="tooltip" title="Deactivate" style="padding-top: 15px;"> <i class="fa fa-times"></i> </a>
                                             @else
-                                                <a href="{{ route('admin.statusblogs',$blog->id) }}" class="btn btn-link btn-success" data-bs-toggle="tooltip" title="Activate" style="padding-top: 15px;"> <i class="fa fa-check"></i> </a>
+                                                <a href="{{ route('admin.statusservices',$service->id) }}" class="btn btn-link btn-success" data-bs-toggle="tooltip" title="Activate" style="padding-top: 15px;"> <i class="fa fa-check"></i> </a>
                                             @endif
                                         </div>   
                                     </td>
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="9" class="text-center">No Blogs Found</td>
+                                    <td colspan="9" class="text-center">No Services Found</td>
                                 </tr>
                                 @endforelse
                             </tbody>

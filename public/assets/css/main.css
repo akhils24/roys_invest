@@ -946,13 +946,20 @@ section,
   margin-bottom: 0;
 }
 
+.services .service-item h3 a {
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+
 @media (min-width: 1365px) {
   .services .service-item:hover {
     transform: translateY(-10px);
     border-color: var(--accent-color);
   }
 
-  .services .service-item:hover h3 {
+  .services .service-item:hover h3 a {
     color: var(--accent-color);
   }
 }

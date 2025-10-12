@@ -90,68 +90,139 @@
 
 </section><!-- /Call To Action Section -->
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio section">
-      <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Gallery</h2>
-      <p>UPDATES</p>
-    </div>
-    <div class="container">
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+    <!-- Features Section -->
+    {{-- <section id="features" class="features section">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+      <div class="container">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
-   
-            </div><!-- End Portfolio Item -->
+        <div class="row gy-4">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
-              
-            </div><!-- End Portfolio Item -->
+          <div class="features-image col-lg-6 order-lg-2" data-aos="fade-up" data-aos-delay="100"><img src="assets/img/features-bg.jpg" alt=""></div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-              
-            </div><!-- End Portfolio Item -->
+          <div class="col-lg-6 order-lg-1">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
-              
-            </div><!-- End Portfolio Item -->
+            <div class="features-item d-flex ps-0 ps-lg-3 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-archive flex-shrink-0"></i>
+              <div>
+                <h4>Est labore ad</h4>
+                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+              </div>
+            </div><!-- End Features Item-->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
-             
-            </div><!-- End Portfolio Item -->
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-basket flex-shrink-0"></i>
+              <div>
+                <h4>Harum esse qui</h4>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+              </div>
+            </div><!-- End Features Item-->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-             
-            </div><!-- End Portfolio Item -->
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-broadcast flex-shrink-0"></i>
+              <div>
+                <h4>Aut occaecati</h4>
+                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+              </div>
+            </div><!-- End Features Item-->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-             
-            </div><!-- End Portfolio Item -->
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-camera-reels flex-shrink-0"></i>
+              <div>
+                <h4>Beatae veritatis</h4>
+                <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+              </div>
+            </div><!-- End Features Item-->
 
-          </div><!-- End Portfolio Container -->
+          </div>
+
         </div>
 
-    </div><!-- End Gallery Row -->
-  </div><!-- End Container -->
+      </div>
+
+    </section><!-- /Features Section --> --}}
+
+    <!-- Clients Section -->
+    {{-- <section id="clients" class="clients section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-0 clients-wrap">
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-4 client-logo">
+            <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
+          </div><!-- End Client Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Clients Section --> --}}
+<section id="portfolio" class="portfolio section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Gallery</h2>
+        <p>UPDATES</p>
+    </div>
+
+    <div class="container">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+                @forelse($gallery_images as $image)
+                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ $image->category->slug ?? 'uncategorized' }}">
+                        <img src="{{ asset('storage/' . $image->image_path) }}" 
+                             class="img-fluid" 
+                             alt="{{ $image->title }}">
+                        <div class="portfolio-info">
+                            <h4>{{ $image->title }}</h4>
+                            <p>{{ $image->description ?? '' }}</p>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-center">No images available in the gallery</p>
+                    </div>
+                @endforelse
+
+            </div>
+        </div>
 
 </section><!-- End Gallery Section -->
 
+        <div class="text-center mt-4">
+            <!-- Make sure this links to the gallery detailed page -->
+            <a href="{{ route('gallery.all') }}" class="btn btn-primary btn-round">View All</a>
+        </div>
+    </div>
+</section>
 <!-- Stats Section --> 
 <section id="stats" class="stats section dark-background">
 
@@ -195,6 +266,7 @@
       </div><!-- End Stats Item -->
 
     </div>
+
 
   </div>
 

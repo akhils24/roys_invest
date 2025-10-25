@@ -30,11 +30,8 @@
         <li class="nav-item active">
         <a href="/login" class="collapsed" aria-expanded="false"><i class="fas fa-home"></i><p>Dashboard</p></a>
         </li>
-        <li class="nav-section">
-        <span class="sidebar-mini-icon">
-            <i class="fa fa-ellipsis-h"></i>
-        </span>
-        <h4 class="text-section">Content Management</h4>
+        <li class="nav-section"><span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>
+            <h4 class="text-section">Content Management</h4>
         </li>
         <li class="nav-item">
             <a  href="/admin-blogs"> <i class="fas fa-address-book"></i> <p>Blog Management</p></a>
@@ -44,6 +41,16 @@
         </li>
         <li class="nav-item">
             <a  href="{{ route('admin.subservices') }}"> <i class="fas fa-address-book"></i> <p>Sub-Services Management</p></a>
+        </li>
+
+        <li class="nav-section"><span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>
+            <h4 class="text-section">Media Management</h4>
+        </li>
+         <li class="nav-item">
+            <a  href="{{ route('admin.catgallery') }}"> <i class="fas fa-address-book"></i> <p>Category Management</p></a>
+        </li>
+        <li class="nav-item">
+            <a  href="{{ route('admin.gallery') }}"> <i class="fas fa-address-book"></i> <p>Gallery Management</p></a>
         </li>
     </ul>
     </div>

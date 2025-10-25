@@ -2,16 +2,22 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class catgallery extends Model
+class CatGallery extends Model
 {
-    protected $table = 'catgalleries';
+    use HasFactory;
 
-    protected $fillable=['name','slug','status','display_order','description'];
+    protected $fillable = [
+        'name',        // ADD THIS
+        'slug',
+        'is_active',
+        'display_order'
+    ];
 
-    public function gallery()
+    public function images()
     {
-        return $this->hasMany(gallery::class, 'category_id');
+        return $this->hasMany(GalleryImage::class, 'category_id')->orderBy('priority');
     }
 }

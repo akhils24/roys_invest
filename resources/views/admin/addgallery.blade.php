@@ -1,6 +1,18 @@
 @extends('admin.layouts.admin')
 @section('content')
     <div>
+<<<<<<< HEAD
+=======
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+>>>>>>> 2d28ab4febec7745721a0f1359c25df92bbcc766
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -15,13 +27,18 @@
                     <div class="card-header">
                         <div class="card-title">ADD IMAGE</div>
                     </div>
+<<<<<<< HEAD
                     <form method="POST" action="{{ route('admin.store_image') }}" enctype="multipart/form-data" id="imageForm">
+=======
+                    <form method="POST" action="{{ route('admin.creategallery') }}" enctype="multipart/form-data" id="GalleryForm">
+>>>>>>> 2d28ab4febec7745721a0f1359c25df92bbcc766
                         @csrf
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 col-lg-4">
                                 <div class="form-group">
                                     <label for="title">Image Title</label>
+<<<<<<< HEAD
                                     <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Enter title" name="title" value="{{ old('title') }}" required/>
                                     @error('title')
                                         <div class="invalid-feedback">
@@ -69,6 +86,22 @@
                                 </div>
                             </div>
 
+=======
+                                    <input type="text" class="form-control" id="title" placeholder="Enter Image Title" name="name" value="{{ old('title') }}" required/>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="form-group">
+                                  <label for="Category">Select Image Category</label>
+                                  <select class="form-control form-control" id="Category" name="category" value="{{ old('category') }}" required>
+                                      <option value="" disabled selected>Select Category</option>
+                                        @foreach($categories as $category)
+                                          <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                  </select>
+                                </div>
+                            </div>
+>>>>>>> 2d28ab4febec7745721a0f1359c25df92bbcc766
                             <div class="col-md-6 col-lg-4">
                                 <div class="form-group">
                                     <label for="priority">Priority</label>
@@ -81,6 +114,7 @@
                                     @enderror
                                 </div>
                             </div>
+<<<<<<< HEAD
 
                             <div class="col-md-6 col-lg-4">
                                 <div class="form-group">
@@ -96,14 +130,34 @@
                                 <div class="form-group">
                                     <label for="description">Description</label>
                                     <textarea class="form-control" id="description" name="description" rows="5">{{ old('description') }}</textarea>
+=======
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="form-group"> 
+                                    <label for="img1" class="d-block">Background Image</label> 
+                                    <input  type="file"  class="form-control-file"  id="img1" name="img1" value="{{ old('image') }}" required /> 
+                                </div>
+                                <div class="col-6 col-sm-4">
+                                    <label class="imagecheck mb-4">
+                                        <figure class="imagecheck-figure"> 
+                                            <img  id="preview1" src="" alt="Service Image" class="imagecheck-image d-none" /> 
+                                        </figure>
+                                    </label>
+>>>>>>> 2d28ab4febec7745721a0f1359c25df92bbcc766
                                 </div>
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
 
                     <div class="card-action">
                         <button class="btn btn-success">Submit</button>
                         <a href="{{ route('admin.gallery') }}" class="btn btn-secondary">Cancel</a>
+=======
+                    <div class="card-action">
+                        <button class="btn btn-success">Submit</button>
+>>>>>>> 2d28ab4febec7745721a0f1359c25df92bbcc766
                     </div>
                     </form>
                 </div>
@@ -113,6 +167,7 @@
 @endsection
 
 <script>
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
     // Image preview function
     const imageInput = document.getElementById("image_file");
@@ -134,3 +189,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+=======
+  document.addEventListener("DOMContentLoaded", function () {
+    // Image preview function
+    function previewImage(inputId, previewId) {
+      document.getElementById(inputId).addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById(previewId);
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.classList.remove("d-none");
+          };
+          reader.readAsDataURL(file);
+        } else {
+          preview.src = "";
+          preview.classList.add("d-none");
+        }
+      });
+    }
+    previewImage("img1", "preview1");
+  });
+</script>
+>>>>>>> 2d28ab4febec7745721a0f1359c25df92bbcc766

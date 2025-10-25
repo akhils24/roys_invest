@@ -2,310 +2,130 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\catgallery;
+use App\Models\gallery;
 use Illuminate\Http\Request;
-use App\Models\CatGallery;
-use App\Models\GalleryImage;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
-
 class GalleryController extends Controller
 {
-    /* ========================= FRONTEND GALLERY ========================= */
-    
-    /**
-     * Display featured images on homepage (priority 1-10 only)
-     */
-    public function frontendGallery()
+    public function index()
     {
-        $gallery_images = GalleryImage::with('category')
-            ->where('is_active', true)
-            ->whereBetween('priority', [1, 10])
-            ->orderBy('priority')
-            ->get();
-            
-        return view('users.index', compact('gallery_images'));
+        $galleries = gallery::with('catgallery')->get();
+        return view('admin.gallery', compact('galleries'));
     }
-
-    /**
-     * Display all active images in detailed gallery page (grouped by category)
-     */
-    public function galleryDetailed()
+    public function create()
     {
-        $categories = CatGallery::with(['images' => function($query) {
-                $query->where('is_active', true)
-                      ->orderBy('priority');
-            }])
-            ->whereHas('images', function($query) {
-                $query->where('is_active', true);
-            })
-            ->orderBy('display_order')
-            ->get();
-            
-        return view('users.gallerydetailed', compact('categories'));
+        $categories=catgallery::where("status",true)->get();
+        return view('admin.addgallery',compact('categories'));
     }
-
-    /* ========================= CATEGORY MANAGEMENT ========================= */
-
-    /**
-     * Display all categories in admin panel
-     */
-    public function catGallery()
-    {
-        $categories = CatGallery::orderBy('display_order')->get();
-        return view('admin.cat_gallery', compact('categories'));
-    }
-
-    /**
-     * Show form to add new category
-     */
-    public function addGalleryCategory()
-    {
-        return view('admin.add_gallery_category');
-    }
-
-    /**
-     * Store new category with unique display order validation
-     */
-    public function storeCategory(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:cat_galleries,name',
-            'display_order' => 'required|integer|min:0|unique:cat_galleries,display_order',
-            'is_active' => 'required|boolean',
+            'name'     => 'required|string|max:255',
+            'category' => 'required|integer|exists:catgalleries,id',
+            'priority' => 'required|integer',
+            'img1'     => 'required|image|mimes:jpg,jpeg,png,webp',
         ]);
 
-        CatGallery::create([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-            'display_order' => $request->display_order,
-            'is_active' => $request->is_active,
-        ]);
+        $priority = $request->input('priority');
+        $categoryId = $request->input('category');
 
-        return redirect()->route('admin.cat_gallery')->with('success', 'Category added successfully!');
-    }
-
-    /**
-     * Toggle category active/inactive status
-     */
-    public function toggleCategory($id)
-    {
-        $category = CatGallery::findOrFail($id);
-        $category->is_active = !$category->is_active;
-        $category->save();
-
-        return back()->with('success', 'Category status updated.');
-    }
-
-    /**
-     * Show form to edit existing category
-     */
-    public function editCategory($id)
-    {
-        $category = CatGallery::findOrFail($id);
-        return view('admin.edit_gallery_category', compact('category'));
-    }
-
-    /**
-     * Update existing category with unique validation
-     */
-    public function updateCategory(Request $request, $id)
-    {
-        $category = CatGallery::findOrFail($id);
-        
-        $request->validate([
-            'name' => 'required|string|max:255|unique:cat_galleries,name,' . $id,
-            'display_order' => 'required|integer|min:0|unique:cat_galleries,display_order,' . $id,
-            'is_active' => 'required|boolean',
-        ]);
-
-        $category->update([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-            'display_order' => $request->display_order,
-            'is_active' => $request->is_active,
-        ]);
-
-        return redirect()->route('admin.cat_gallery')->with('success', 'Category updated successfully!');
-    }
-
-    /* ========================= IMAGE MANAGEMENT ========================= */
-
-    /**
-     * Display all images in admin panel
-     */
-    public function gallery()
-    {
-        $gallery_images = GalleryImage::with('category')->orderBy('priority')->get();
-        return view('admin.gallery', compact('gallery_images'));
-    }
-
-    /**
-     * Show form to add new image
-     */
-    public function addGallery()
-    {
-        $categories = CatGallery::where('is_active', true)
-            ->orderBy('display_order')
-            ->get();
-            
-        return view('admin.addgallery', compact('categories'));
-    }
-
-    /**
-     * Store new image with priority validation
-     * - Priorities 1-10: Unique across all categories
-     * - Priorities 11+: Unique within same category
-     */
-    public function storeImage(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'category_id' => 'required|exists:cat_galleries,id',
-            'image_file' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'priority' => 'required|integer|min:0',
-            'is_active' => 'required|boolean',
-        ]);
-
-        // Validate priority 1-10 uniqueness across all categories
-        if ($request->priority <= 10) {
-            $existingPriority = GalleryImage::where('priority', $request->priority)
-                ->where('priority', '<=', 10)
-                ->first();
+        if ($priority <= 10) {
+            $existingPriority = gallery::where('priority', $priority)->where('priority', '<=', 10)->first();
 
             if ($existingPriority) {
-                return back()->withErrors(['priority' => "Priority {$request->priority} is already taken. Priorities 1-10 must be unique across all categories."])->withInput();
+                return back()->withErrors(['priority' => "Priority {$priority} is already taken. Priorities 1-10 must be unique across all categories."])->withInput();
             }
-        }
-
-        // Validate priority 11+ uniqueness within same category
-        if ($request->priority > 10) {
-            $existingImage = GalleryImage::where('category_id', $request->category_id)
-                ->where('priority', $request->priority)
-                ->first();
-
+        } else {
+            $existingImage = gallery::where('category_id', $categoryId)->where('priority', $priority)->first();
             if ($existingImage) {
                 return back()->withErrors(['priority' => 'This priority is already taken in the selected category.'])->withInput();
             }
         }
-
-        // Store image file
-        $path = $request->file('image_file')->store('uploads/gallery', 'public');
-
-        // Create image record
-        GalleryImage::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'image_path' => $path,
-            'category_id' => $request->category_id,
-            'priority' => $request->priority,
-            'is_active' => $request->is_active,
-        ]);
-
-        return redirect()->route('admin.gallery')->with('success', 'Image added successfully!');
-    }
-
-    /**
-     * Toggle image active/inactive status
-     * - Deactivated images get priority -1 (frees up the priority)
-     * - Activated images get default priority 11
-     */
-    public function toggleImage($id)
-    {
-        $image = GalleryImage::findOrFail($id);
-        
-        if ($image->is_active) {
-            // Deactivate: Free up priority by setting to -1
-            $image->is_active = false;
-            $image->priority = -1;
-            $message = 'Image deactivated!';
-        } else {
-            // Activate: Set to default gallery-only priority
-            $image->is_active = true;
-            $image->priority = 11;
-            $message = 'Image activated with default priority!';
+        $image1Path = null;
+        if ($request->hasFile('img1')) {
+            $image1 = $request->file('img1');
+            $baseName = Str::slug($request->input('name'));
+            $ext = strtolower($image1->getClientOriginalExtension());
+            $filename = $baseName . '-' . time() . '.' . $ext;
+            $image1Path = $image1->storeAs('Gallery', $filename, 'public');
         }
-        
-        $image->save();
-
-        return back()->with('success', $message);
-    }
-
-    /**
-     * Show form to edit existing image
-     */
-    public function editImage($id)
-    {
-        $image = GalleryImage::findOrFail($id);
-        $categories = CatGallery::where('is_active', true)
-            ->orderBy('display_order')
-            ->get();
-            
-        return view('admin.edit_gallery_image', compact('image', 'categories'));
-    }
-
-    /**
-     * Update existing image with priority validation
-     */
-    public function updateImage(Request $request, $id)
-    {
-        $image = GalleryImage::findOrFail($id);
-        
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'category_id' => 'required|exists:cat_galleries,id',
-            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'priority' => 'required|integer|min:0',
-            'is_active' => 'required|boolean',
+        gallery::create([
+            'title'       => $request->input('name'),
+            'slug'        => Str::slug($request->input('name'), '-'),
+            'category_id' => $categoryId,
+            'priority'    => $priority,
+            'image'       => $image1Path,
         ]);
 
-        // Validate priority 1-10 uniqueness (excluding current image)
-        if ($request->priority <= 10) {
-            $existingPriority = GalleryImage::where('priority', $request->priority)
-                ->where('priority', '<=', 10)
-                ->where('id', '!=', $id)
-                ->first();
+        return redirect()->route('admin.gallery')->with('success', 'Image added successfully');
+    }
 
+    public function show(gallery $gallery)
+    {
+        //
+    }
+    public function edit($id)
+    {
+        $gallery=gallery::findOrFail($id);
+        $categories=catgallery::where("status",true)->get();
+        return view('admin.editgallery',compact('gallery','categories'));
+    }
+    public function update(Request $request, $id)
+    {
+         $request->validate([
+            'name'     => 'required|string|max:255',
+            'category' => 'required|integer|exists:catgalleries,id',
+            'priority' => 'required|integer',
+            'img1'     => 'image|mimes:jpg,jpeg,png,webp',
+        ]);
+
+        $priority = $request->input('priority');
+        $categoryId = $request->input('category');
+
+        if ($priority <= 10) {
+            $existingPriority = gallery::where('priority', $priority)->where('priority', '<=', 10)->first();
             if ($existingPriority) {
-                return back()->withErrors(['priority' => "Priority {$request->priority} is already taken by '{$existingPriority->title}'. Priorities 1-10 must be unique across all categories."])->withInput();
+                return back()->withErrors(['priority' => "Priority {$priority} is already taken. Priorities 1-10 must be unique across all categories."])->withInput();
+            }
+        } else {
+            $existingPriority = gallery::where('category_id', $categoryId)->where('priority', $priority)->first();
+            if ($existingPriority) {
+                return back()->withErrors(['priority' => 'This priority is already taken in the selected category.'])->withInput();
             }
         }
-
-        // Validate priority 11+ uniqueness when category changes
-        if ($request->priority > 10 || $request->category_id != $image->category_id) {
-            $existingImage = GalleryImage::where('category_id', $request->category_id)
-                ->where('priority', $request->priority)
-                ->where('id', '!=', $id)
-                ->first();
-
-            if ($existingImage) {
-                return back()->withErrors(['priority' => "This priority is already taken by '{$existingImage->title}' in the selected category."])->withInput();
-            }
+        if ($request->hasFile('image')) {
+            $image1 = $request->file('image');
+            $name1  = Str::slug($request->input('name'));
+            $ext1   = strtolower($image1->getClientOriginalExtension());
+            $filename1 = $name1 . '-' . time() . '.' . $ext1;
+            $image1Path = $image1->storeAs('Gallery', $filename1, 'public');
+        }else{
+            $image1Path=$request->input('old_img1');
         }
-
-        // Prepare update data
-        $data = [
-            'title' => $request->title,
-            'description' => $request->description,
-            'category_id' => $request->category_id,
-            'priority' => $request->priority,
-            'is_active' => $request->is_active,
-        ];
-
-        // Handle new image upload if provided
-        if ($request->hasFile('image_file')) {
-            // Delete old image file
-            if ($image->image_path && Storage::disk('public')->exists($image->image_path)) {
-                Storage::disk('public')->delete($image->image_path);
-            }
-            
-            // Store new image
-            $path = $request->file('image_file')->store('uploads/gallery', 'public');
-            $data['image_path'] = $path;
+        $gallery=gallery::findOrFail($id);
+        $gallery->update([
+            'title'       => $request->input('name'),
+            'slug'        => Str::slug($request->input('name'), '-'),
+            'category_id' => $categoryId,
+            'priority'    => $priority,
+            'image'       => $image1Path,
+        ]);
+        return redirect()->route('admin.gallery')->with('success','Photo Updated Successfully');
+    }
+    public function destroy($id)
+    {
+        $gallery=gallery::findOrFail($id);
+        if($gallery->status){
+            $gallery->update([
+                'status'=>0,
+                'priority'=> -1,
+            ]);
+            $msg="Image Deactivated Successfully, Priority has been cleared.";
+        }else{
+            $gallery->update(['status'=>1]);
+            $msg="Image Activated Successfully.";
         }
-
-        $image->update($data);
-
-        return redirect()->route('admin.gallery')->with('success', 'Image updated successfully!');
+        return redirect()->route('admin.gallery')->with('success',$msg);
     }
 }

@@ -13,6 +13,7 @@
     <li><a href="/#services">Services</a></li>
     <li><a href="/#blogs">Blog</a></li>
     <li><a href="/#contact">Contact Us</a></li>
+    <li><a href="/#contact">Gallery</a></li>
     </ul>
     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>

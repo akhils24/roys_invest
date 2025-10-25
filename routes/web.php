@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CatgalleryController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubserviceController;
@@ -35,6 +37,21 @@ Route::get('/editsubservices/{id}/edit',[SubserviceController::class,'edit'])->n
 Route::post('/editsubservices/{id}/edit',[SubserviceController::class,'update'])->name('admin.updatesubservices');
 Route::get('/statusubservices/{id}/update',[SubserviceController::class,'destroy'])->name('admin.statussubservices');
 
+// gallery category
+Route::get('/admin-catgallery',[CatgalleryController::class,'index'])->name('admin.catgallery');
+Route::get('/addcatgallery',[CatgalleryController::class,'create'])->name('admin.addcatgallery');
+Route::post('/addcatgallery',[CatgalleryController::class,'store'])->name('admin.createcatgallery');
+Route::get('/editcatgallery/{id}/edit',[CatgalleryController::class,'edit'])->name('admin.editcatgallery');
+Route::post('/editcatgallery/{id}/edit',[CatgalleryController::class,'update'])->name('admin.updatecatgallery');
+Route::get('/statuscatgallery/{id}/update',[CatgalleryController::class,'destroy'])->name('admin.statuscatgallery');
+
+// gallery
+Route::get('/admin-gallery',[GalleryController::class,'index'])->name('admin.gallery');
+Route::get('/addgallery',[GalleryController::class,'create'])->name('admin.addgallery');
+Route::post('/addgallery',[GalleryController::class,'store'])->name('admin.creategallery');
+Route::get('/editgallery/{id}/edit',[GalleryController::class,'edit'])->name('admin.editgallery');
+Route::post('/editgallery/{id}/edit',[GalleryController::class,'update'])->name('admin.updategallery');
+Route::get('/statusgallery/{id}/update',[GalleryController::class,'destroy'])->name('admin.statusgallery');
 
 
 Route::get('/login', function () { return view('admin.dash'); })->name('admin');

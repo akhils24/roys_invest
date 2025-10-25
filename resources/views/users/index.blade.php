@@ -90,6 +90,7 @@
 
 </section><!-- /Call To Action Section -->
 
+<<<<<<< HEAD
 
     <!-- Features Section -->
     {{-- <section id="features" class="features section">
@@ -216,6 +217,44 @@
         </div>
 
 </section><!-- End Gallery Section -->
+=======
+<!-- Recent Blog Posts Section -->
+<section id="blogs" class="recent-posts section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Recent Blog Posts</h2>
+    <p>Explore expert insights and the latest financial trends to stay ahead in your wealth journey.</p>
+    <a href="/blogs" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+  </div>
+  <div class="container">
+    <div class="row gy-4">
+      @forelse ($blogs as $blog)
+        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <article>
+            <div class="post-img">
+              <img src="{{ asset('storage/' . $blog->image1) }}" alt="" class="img-fluid">
+            </div>
+            <p class="post-category">{{ $blog->category }}</p>
+            <h2 class="title">
+              <a href="{{ route('user.blogs.details',$blog->slug) }}">{{ $blog->title}}</a>
+            </h2>
+            <div class="d-flex align-items-center">
+              <img src="assets/img/logo background.png" alt="" class="img-fluid post-author-img flex-shrink-0">
+              <div class="post-meta">
+                <p class="post-author">Roy's Invest</p>
+                <p class="post-date">
+                  <time datetime="{{ $blog->created_at->format('Y-m-d') }}"> {{ $blog->created_at->format('M d, Y') }} </time>
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      @empty
+          <p>No blogs available.</p>
+      @endforelse
+    </div>
+  </div>
+</section>
+>>>>>>> 2d28ab4febec7745721a0f1359c25df92bbcc766
 
         <div class="text-center mt-4">
             <!-- Make sure this links to the gallery detailed page -->
@@ -330,43 +369,67 @@
 
 </section><!-- /Faq Section -->
 
-
-<!-- Recent Blog Posts Section -->
-<section id="blogs" class="recent-posts section">
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Recent Blog Posts</h2>
-    <p>Explore expert insights and the latest financial trends to stay ahead in your wealth journey.</p>
-    <a href="/blogs" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-  </div>
-  <div class="container">
-    <div class="row gy-4">
-      @forelse ($blogs as $blog)
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <article>
-            <div class="post-img">
-              <img src="{{ asset('storage/' . $blog->image1) }}" alt="" class="img-fluid">
-            </div>
-            <p class="post-category">{{ $blog->category }}</p>
-            <h2 class="title">
-              <a href="{{ route('user.blogs.details',$blog->slug) }}">{{ $blog->title}}</a>
-            </h2>
-            <div class="d-flex align-items-center">
-              <img src="assets/img/logo background.png" alt="" class="img-fluid post-author-img flex-shrink-0">
-              <div class="post-meta">
-                <p class="post-author">Roy's Invest</p>
-                <p class="post-date">
-                  <time datetime="{{ $blog->created_at->format('Y-m-d') }}"> {{ $blog->created_at->format('M d, Y') }} </time>
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-      @empty
-          <p>No blogs available.</p>
-      @endforelse
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio section">
+      <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Gallery</h2>
+      <p>UPDATES</p>
     </div>
-  </div>
-</section>
+    <div class="container">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
+   
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
+              
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
+              
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
+              
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
+             
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
+             
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
+             
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+        </div>
+
+    </div><!-- End Gallery Row -->
+  </div><!-- End Container -->
+
+</section><!-- End Gallery Section -->
 
 <!-- Contact Section --> 
 <section id="contact" class="contact section light-background">

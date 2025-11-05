@@ -4,6 +4,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CatgalleryController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\GoogleReviewController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubserviceController;
@@ -11,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 Route::get('/',[HomeController::class,'index'])->name('index');
+
+Route::get('/api/google-reviews', [GoogleReviewController::class, 'api'])->name('google.reviews.api');
+Route::get('/proxy-image', [GoogleReviewController::class, 'proxyImage'])->name('proxy.image');
+
 
 // admin side management
 // blogs
@@ -63,4 +68,3 @@ Route::get('/blogs/{slug}',[BlogController::class,'details'])->name('user.blogs.
 
 Route::get('/{category}',[ServiceController::class,'show'])->name('user.services');
 Route::get('/{category}/{slug}',[SubserviceController::class,'show'])->name('user.service.details');
-

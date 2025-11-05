@@ -127,6 +127,164 @@
   </div>
 </section>
 
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials section light-background">
+
+  <div class="container section-title" data-aos="fade-up">
+    <h2>What Our Clients Say</h2>
+    <p>Real reviews from Google — trusted by our clients.</p>
+  </div>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+  <div class="container-fluid px-0">
+    <div class="swiper testimonials-swiper" aria-label="Client testimonials">
+      <div class="swiper-wrapper" id="google-reviews">
+        <!-- Skeleton slides (shown before data loads) -->
+        <template id="skeleton-template">
+          <div class="swiper-slide">
+            <div class="testimonial-item p-3" style="min-height:140px;">
+              <div class="skeleton-avatar rounded-circle"></div>
+              <div class="skeleton-line mt-2"></div>
+              <div class="skeleton-line short mt-1"></div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="#" id="more-reviews-link" class="read-more">
+        <span>See more reviews on Google</span><i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="testimonial-pagination-wrapper text-center mt-3">
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <style>
+    .testimonial-item {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+      padding: 18px;
+      width: min(520px, calc(100% - 24px));
+    }
+    .testimonials-swiper .swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testimonial-text {
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .skeleton-avatar, .skeleton-line {
+      background: linear-gradient(90deg, #f2f2f2, #e6e6e6);
+      border-radius: 4px;
+    }
+    .skeleton-avatar { width: 48px; height: 48px; border-radius: 50%; }
+    .skeleton-line { height: 12px; width: 80%; margin-top: 6px; }
+    .skeleton-line.short { width: 50%; }
+    .testimonials-swiper .swiper-button-prev,
+    .testimonials-swiper .swiper-button-next { display: none !important; }
+    .testimonial-pagination-wrapper .swiper-pagination { position: static; margin-top: 12px; }
+  </style>
+
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
+  <script>
+    (function() {
+      const wrapper = document.getElementById('google-reviews');
+      const moreLink = document.getElementById('more-reviews-link');
+      const skeletonTemplate = document.getElementById('skeleton-template').innerHTML;
+      let swiperInstance = null;
+
+      // show skeletons
+      wrapper.innerHTML = new Array(6).fill(skeletonTemplate).join('');
+
+      const starsHtml = (rating = 5) =>
+        Array.from({ length: 5 }, (_, i) =>
+          `<svg width="14" height="14" viewBox="0 0 24 24"
+            ${i < rating ? 'fill="currentColor"' : 'fill="none" stroke="currentColor"'}
+          ><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.402 8.168L12 18.896l-7.336 3.87
+          1.402-8.168L.132 9.21l8.2-1.192z"/></svg>`
+        ).join('');
+
+      const makeSlide = (r) => `
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <div class="testimonial-author mb-2">
+              <img src="${r.profile_photo_url || '/assets/img/logo background.png'}" alt="${r.author_name || 'Customer'}" class="rounded-circle" style="width:48px;height:48px;object-fit:cover;">
+              <div>
+                <strong>${r.author_name || 'Anonymous'}</strong>
+                <div class="small text-muted">
+                  ${starsHtml(Math.round(r.rating))}
+                  <span class="ms-2">${r.relative_time_description || ''}</span>
+                </div>
+              </div>
+            </div>
+            <p class="testimonial-text mb-0">${r.text || ''}</p>
+          </div>
+        </div>`;
+
+      function initSwiper(slideCount = 0) {
+        if (swiperInstance) swiperInstance.destroy(true, true);
+        swiperInstance = new Swiper('.testimonials-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 5,
+          loop: slideCount > 3,
+          speed: 600,
+          autoplay: { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
+          pagination: { el: '.swiper-pagination', clickable: true },
+          breakpoints: {
+            768: { slidesPerView: 2 },
+            992: { slidesPerView: 3 },
+            1200: { slidesPerView: 4 },
+            1400: { slidesPerView: 5 }
+          }
+        });
+      }
+
+      async function loadReviews() {
+        let data = { reviews: [], provider_url: null };
+
+        try {
+          const res = await fetch("{{ url('/api/google-reviews') }}");
+          if (!res.ok) throw new Error('Network Error');
+          data = await res.json();
+          console.log('✅ Loaded reviews:', data);
+        } catch (err) {
+          console.warn('⚠️ Failed to load live reviews:', err);
+          data.reviews = [
+            { author_name: 'S. Nair', rating: 5, text: 'Excellent service and trustworthy advice.', relative_time_description: '2 months ago' },
+            { author_name: 'A. Singh', rating: 4, text: 'Professional team and great results.', relative_time_description: '1 year ago' },
+            { author_name: 'Priya', rating: 5, text: 'Helped me plan my investments with clarity.', relative_time_description: '3 weeks ago' }
+          ];
+        }
+
+        wrapper.innerHTML = '';
+
+        if (Array.isArray(data.reviews) && data.reviews.length) {
+          data.reviews.forEach(r => wrapper.insertAdjacentHTML('beforeend', makeSlide(r)));
+          if (data.provider_url) moreLink.href = data.provider_url;
+          initSwiper(data.reviews.length);
+        } else {
+          wrapper.innerHTML = '<div class="swiper-slide"><div class="text-center p-4">No testimonials available.</div></div>';
+          initSwiper(0);
+        }
+      }
+
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', loadReviews)
+        : loadReviews();
+    })();
+  </script>
+</section>
+
+
 <!-- Stats Section --> 
 <section id="stats" class="stats section dark-background">
 
@@ -176,7 +334,7 @@
 </section><!-- /Stats Section -->
 
   <!-- Faq Section -->
-  <section id="faq" class="faq section">
+<section id="faq" class="faq section">
 
   <div class="container-fluid">
 

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="page-title dark-background" data-aos="fade" style=" background-image: url('{{ $blog->image1 ? asset('storage/' . $blog->image2) : asset('assets/img/page-title-bg.webp') }}');">
+    <div class="page-title dark-background" data-aos="fade" style=" background-image: url('{{ $blog->image1 ? asset('public_storage/' . $blog->image2) : asset('assets/img/page-title-bg.webp') }}');">
         <div class="container position-relative">
         <h1>{{ $blog->title }}</h1>
         <nav class="breadcrumbs">
@@ -25,7 +25,7 @@
                     <div class="container">
                         <article class="article">
                             <div class="post-img">
-                                <img src="{{ asset('storage/' . $blog->image1) }}" alt="" class="img-fluid">
+                                <img src="{{ asset('public_storage/' . $blog->image1) }}" alt="" class="img-fluid">
                             </div>
                             <h2 class="title">{{ $blog->title }}</h2>
                             <div class="meta-top">
@@ -78,7 +78,7 @@
                         <h3 class="widget-title">Recent Blogs</h3>
                         @forelse($recentblogs as $recentblog)
                             <div class="post-item">
-                            <img src="{{ asset('storage/'.$recentblog->image1) }}" alt="{{ $recentblog->category }}" class="flex-shrink-0">
+                            <img src="{{ asset('public_storage/'.$recentblog->image1) }}" alt="{{ $recentblog->category }}" class="flex-shrink-0">
                             <div>
                                 <h4><a href="{{ route('user.blogs.details',$recentblog->slug) }}">{{ $recentblog->title }}</a></h4>
                                 <time datetime="{{ $recentblog->created_at->format('Y-m-d') }}"> {{ $recentblog->created_at->format('M d, Y') }} </time>

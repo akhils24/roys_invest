@@ -4,7 +4,7 @@
 @section('content')
 
 <!-- Page Title -->
-<div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ asset('storage/' . $service->image) }}');">
+<div class="page-title dark-background" data-aos="fade" style="background-image: url('{{ asset('public_storage/' . $service->image) }}');">
     <div class="container position-relative">
         <h1>{{ $service->name }}</h1>
         <p>{{ $service->description }}</p>
@@ -25,7 +25,7 @@
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <article>
                         <div class="post-img">
-                            <img src="{{ asset('storage/' . $subservice->image) }}" alt="" class="img-fluid">
+                            <img src="{{ asset('public_storage/' . $subservice->image) }}" alt="" class="img-fluid">
                         </div>
                         <h2 class="title">
                             <a href="{{ route('user.service.details',['category'=>$service->slug,'slug'=>$subservice->slug]) }}">

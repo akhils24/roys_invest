@@ -61,7 +61,7 @@
                                     <td>{{ $service->id }}</td>
                                     <td>{{ $service->name }}</td>
                                     <td>{{ $service->description }}</td>
-                                    <td><img src="{{ asset('storage/' . $service->image) }}" alt="Blog Image 1" width="150"></td>
+                                    <td><img src="{{ asset('public_storage/' . $service->image) }}" alt="Blog Image 1" width="150"></td>
                                     <td>{{ $service->created_at }}</td>
                                     <td>{{ $service->status ? 'Active' : 'Inactive' }}</td>
                                     <td>

@@ -62,7 +62,7 @@
                                 <tr>
                                     <td>{{ $gallery->id }}</td>
                                     <td>{{ $gallery->title }}</td>
-                                    <td><img src="{{ asset('storage/' . $gallery->image) }}" alt="Blog Image 1" width="150"></td>
+                                    <td><img src="{{ asset('public_storage/' . $gallery->image) }}" alt="Blog Image 1" width="150"></td>
                                     <td>{{ $gallery->catgallery->name }}</td>
                                     <td>{{ $gallery->priority }}</td>
                                     <td>{{ $gallery->created_at }}</td>

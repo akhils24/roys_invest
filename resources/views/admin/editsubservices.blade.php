@@ -60,7 +60,7 @@
                                     <input type="file" class="form-control-file" id="img1" name="img1" />
                                     <input type="hidden" name="old_img1" value="{{ $subservice->image }}">
                                     <div class="mt-2">
-                                        <img id="preview1" src="{{ $subservice->image ? asset('storage/'.$subservice->image) : '' }}" width="150" class="{{ $subservice->image ? '' : 'd-none' }}">
+                                        <img id="preview1" src="{{ $subservice->image ? asset('public_storage/'.$subservice->image) : '' }}" width="150" class="{{ $subservice->image ? '' : 'd-none' }}">
                                     </div>
                                 </div>
                             </div>

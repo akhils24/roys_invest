@@ -69,8 +69,8 @@
                                     <td>{{ $blog->category }}</td>
                                     {{-- <td>{!! $blog->content !!}</td> --}}
                                     <td>{{ $blog->author }}</td>
-                                    <td><img src="{{ asset('storage/' . $blog->image1) }}" alt="Blog Image 1" width="150"></td>
-                                    <td><img src="{{ asset('storage/' . $blog->image2) }}" alt="Blog Image 2" width="150"></td>
+                                    <td><img src="{{ asset('public_storage/' . $blog->image1) }}" alt="Blog Image 1" width="150"></td>
+                                    <td><img src="{{ asset('public_storage/' . $blog->image2) }}" alt="Blog Image 2" width="150"></td>
                                     <td>{{ $blog->created_at }}</td>
                                     <td>{{ $blog->status ? 'Active' : 'Inactive' }}</td>
                                     <td>

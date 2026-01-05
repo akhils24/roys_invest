@@ -24,7 +24,7 @@
         <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <article>
             <div class="post-img">
-              <img src="{{ asset('storage/' . $blog->image1) }}" alt="" class="img-fluid">
+              <img src="{{ asset('public_storage/' . $blog->image1) }}" alt="" class="img-fluid">
             </div>
             <p class="post-category">{{ $blog->category }}</p>
             <h2 class="title">

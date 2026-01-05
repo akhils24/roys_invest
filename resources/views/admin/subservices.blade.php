@@ -64,7 +64,7 @@
                                     <td>{{ $subservice->name }}</td>
                                     <td>{{ $subservice->description }}</td>
                                     <td>{{ $subservice->service ? $subservice->service->name : 'N/A' }}</td>
-                                    <td><img src="{{ asset('storage/' . $subservice->image) }}" alt="Blog Image 1" width="150"></td>
+                                    <td><img src="{{ asset('public_storage/' . $subservice->image) }}" alt="Blog Image 1" width="150"></td>
                                     <td>{{ $subservice->created_at }}</td>
                                     <td>{{ $subservice->status ? 'Active' : 'Inactive' }}</td>
                                     <td>

@@ -40,7 +40,7 @@
                                     <input type="file" class="form-control-file" id="img1" name="img1" />
                                     <input type="hidden" name="old_img1" value="{{ $blog->image1 }}">
                                     <div class="mt-2">
-                                        <img id="preview1" src="{{ $blog->image1 ? asset('storage/'.$blog->image1) : '' }}" width="150" class="{{ $blog->image1 ? '' : 'd-none' }}">
+                                        <img id="preview1" src="{{ $blog->image1 ? asset('public_storage/'.$blog->image1) : '' }}" width="150" class="{{ $blog->image1 ? '' : 'd-none' }}">
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                     <input type="file" class="form-control-file" id="img2" name="img2" />
                                     <input type="hidden" name="old_img2" value="{{ $blog->image2 }}">
                                     <div class="mt-2">
-                                        <img id="preview2" src="{{ $blog->image2 ? asset('storage/'.$blog->image2) : '' }}" width="150" class="{{ $blog->image2 ? '' : 'd-none' }}">
+                                        <img id="preview2" src="{{ $blog->image2 ? asset('public_storage/'.$blog->image2) : '' }}" width="150" class="{{ $blog->image2 ? '' : 'd-none' }}">
                                     </div>
                                 </div>
                             </div>

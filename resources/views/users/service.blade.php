@@ -3,7 +3,7 @@
 @section('meta_description', Str::limit(strip_tags($service->description), 150))
 @section('content')
 
-    <div class="page-title dark-background" data-aos="fade" style=" background-image: url('{{ asset('storage/' . $service->image) }}');">
+    <div class="page-title dark-background" data-aos="fade" style=" background-image: url('{{ asset('public_storage/' . $service->image) }}');">
         <div class="container position-relative">
         <h1>{{ $subservice->name }}</h1>
         {{-- <p>{{ $service->description }}</p> --}}
@@ -24,7 +24,7 @@
                     <div class="container">
                         <article class="article">
                             <div class="post-img">
-                                <img src="{{ asset('storage/' . $subservice->image) }}" alt="" class="img-fluid">
+                                <img src="{{ asset('public_storage/' . $subservice->image) }}" alt="" class="img-fluid">
                             </div>
                             <h2 class="title">{{ $subservice->name }}</h2>
                             <div class="meta-top">
@@ -87,7 +87,7 @@
                         <h3 class="widget-title">Recent Blogs</h3>
                         @forelse($recentblogs as $recentblog)
                             <div class="post-item">
-                            <img src="{{ asset('storage/'.$recentblog->image1) }}" alt="{{ $recentblog->category }}" class="flex-shrink-0">
+                            <img src="{{ asset('public_storage/'.$recentblog->image1) }}" alt="{{ $recentblog->category }}" class="flex-shrink-0">
                             <div>
                                 <h4><a href="{{ route('user.blogs.details',$recentblog->slug) }}">{{ $recentblog->title }}</a></h4>
                                 <time datetime="{{ $recentblog->created_at->format('Y-m-d') }}"> {{ $recentblog->created_at->format('M d, Y') }} </time>

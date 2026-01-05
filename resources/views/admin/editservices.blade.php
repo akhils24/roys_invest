@@ -54,7 +54,7 @@
                                     <input type="file" class="form-control-file" id="img1" name="image" />
                                     <input type="hidden" name="old_img1" value="{{ $service->image }}">
                                     <div class="mt-2">
-                                        <img id="preview1" src="{{ $service->image ? asset('storage/'.$service->image) : '' }}" width="150" class="{{ $service->image ? '' : 'd-none' }}">
+                                        <img id="preview1" src="{{ $service->image ? asset('public_storage/'.$service->image) : '' }}" width="150" class="{{ $service->image ? '' : 'd-none' }}">
                                     </div>
                                 </div>
                             </div>

@@ -65,7 +65,7 @@
                                     <input type="file" class="form-control-file" id="img1" name="image" />
                                     <input type="hidden" name="old_img1" value="{{ $gallery->image }}">
                                     <div class="mt-2">
-                                        <img id="preview1" src="{{ $gallery->image ? asset('storage/'.$gallery->image) : '' }}" width="150" class="{{ $gallery->image ? '' : 'd-none' }}">
+                                        <img id="preview1" src="{{ $gallery->image ? asset('public_storage/'.$gallery->image) : '' }}" width="150" class="{{ $gallery->image ? '' : 'd-none' }}">
                                     </div>
                                 </div>
                             </div>

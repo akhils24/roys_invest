@@ -2,7 +2,7 @@
 <div class="container position-relative d-flex align-items-center justify-content-between">
 
     <a href="{{ route('index') }}" class="logo d-flex align-items-center me-auto me-xl-0">
-    {{-- <img src="{{asset('assets/img/logo background.png')}}" alt=""> --}}
+    <img src="{{asset('assets/img/logo1.png')}}" alt="">
     <h1 class="sitename">ROY'S INVEST</h1>
     </a>
 

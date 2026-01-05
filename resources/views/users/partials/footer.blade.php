@@ -76,10 +76,10 @@
     </div>
 
     <!-- Divider -->
-    <hr style="border-color:#333; margin:24px 0;">
+    {{-- <hr style="border-color:#333; margin:24px 0;"> --}}
 
     <!-- Disclaimer -->
-    <div style="text-align:center;font-size:11px;color:#9ca3af;line-height:1.6;max-width:900px;margin:0 auto;" >
+    <div style="text-align:center;font-size:11px;color:#9ca3af;line-height:1.6;margin:0 auto;" >
       Mutual Fund investments are subject to market risks. Read all scheme related documents carefully |
       Consult your financial advisor before investing |
       Registered Mutual Fund Distributor under ARN-264361,ARN-139447

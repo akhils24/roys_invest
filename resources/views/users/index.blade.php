@@ -90,7 +90,7 @@
 
 </section><!-- /Call To Action Section -->
 
-<<<<<<< HEAD
+
 
     <!-- Features Section -->
     {{-- <section id="features" class="features section">
@@ -187,7 +187,7 @@
       </div>
 
     </section><!-- /Clients Section --> --}}
-<section id="portfolio" class="portfolio section">
+{{-- <section id="portfolio" class="portfolio section">
     <div class="container section-title" data-aos="fade-up">
         <h2>Gallery</h2>
         <p>UPDATES</p>
@@ -216,8 +216,8 @@
             </div>
         </div>
 
-</section><!-- End Gallery Section -->
-=======
+</section><!-- End Gallery Section --> --}}
+
 <!-- Recent Blog Posts Section -->
 <section id="blogs" class="recent-posts section">
   <div class="container section-title" data-aos="fade-up">

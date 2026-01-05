@@ -72,7 +72,7 @@
   </main>
 
   <!-- footer -->
-  {{-- @include('users.partials.footer ') --}}
+  @include('users.partials.footer ')
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top"><i class="bi bi-arrow-up-short"></i></a>

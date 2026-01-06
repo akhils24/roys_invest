@@ -46,7 +46,7 @@
                                     <input type="file" class="form-control-file" id="img1" name="image" />
                                     <input type="hidden" name="old_img1" value="{{ $partner->logo }}">
                                     <div class="mt-2">
-                                        <img id="preview1" src="{{ $partner->logo ? asset('storage/'.$partner->logo) : '' }}" width="150" class="{{ $partner->logo ? '' : 'd-none' }}">
+                                        <img id="preview1" src="{{ $partner->logo ? asset('public_storage/'.$partner->logo) : '' }}" width="150" class="{{ $partner->logo ? '' : 'd-none' }}">
                                     </div>
                                 </div>
                             </div>

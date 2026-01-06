@@ -61,9 +61,15 @@ class GalleryController extends Controller
         return redirect()->route('admin.gallery')->with('success', 'Image added successfully');
     }
 
-    public function show(gallery $gallery)
-    {
-        //
+    public function show()
+    {   
+        // $categories=catgallery::where("status",true)->has("gallery")->with("gallery")->where("status",true)->get();
+        $categories = catgallery::where('status', true)->whereHas('gallery', function ($q) {
+                $q->where('status', true);
+            })->with(['gallery' => function ($q) {
+                $q->where('status', true)->orderBy('priority');}])->orderBy('display_order')->get();
+    
+        return view('users.gallery', compact('categories'));
     }
     public function edit($id)
     {

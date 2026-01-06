@@ -6,6 +6,8 @@ use App\Http\Controllers\CatgalleryController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GoogleReviewController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubserviceController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +20,7 @@ Route::get('/proxy-image', [GoogleReviewController::class, 'proxyImage'])->name(
 
 
 // admin side management
+Route::get('/login', function () { return view('admin.dash'); })->name('admin');
 // blogs
 Route::get('/admin-blogs',[BlogController::class,'index'])->name('admin.blogs');
 Route::get('/addblogs',[BlogController::class,'create'])->name('admin.addblogs');
@@ -58,10 +61,23 @@ Route::get('/editgallery/{id}/edit',[GalleryController::class,'edit'])->name('ad
 Route::post('/editgallery/{id}/edit',[GalleryController::class,'update'])->name('admin.updategallery');
 Route::get('/statusgallery/{id}/update',[GalleryController::class,'destroy'])->name('admin.statusgallery');
 
+//contact messages
+Route::get('/admin-contacts',[ContactController::class,'index'])->name('admin.contacts');
+Route::get('/statuscontact/{id}/update',[ContactController::class,'destroy'])->name('admin.statuscontact');
 
-Route::get('/login', function () { return view('admin.dash'); })->name('admin');
+//Partners management
+Route::get('/admin-partners',[PartnersController::class,'index'])->name('admin.partners');
+Route::get('/addpartners',[PartnersController::class,'create'])->name('admin.addpartners');
+Route::post('/addpartners',[PartnersController::class,'store'])->name('admin.createpartners');
+Route::get('/editpartners/{id}/edit',[PartnersController::class,'edit'])->name('admin.editpartners');
+Route::post('/editpartners/{id}/edit',[PartnersController::class,'update'])->name('admin.updatepartners');
+Route::get('/statuspartners/{id}/update',[PartnersController::class,'destroy'])->name('admin.statuspartners');
 
-Route::post('/contact',[HomeController::class,'store'])->name('user.contact');
+
+// user side routes
+Route::post('/contact',[ContactController::class,'store'])->name('user.contact');
+
+Route::get('/gallery',[GalleryController::class,'show'])->name('user.gallery');
 
 Route::get('/blogs',[BlogController::class,'show'])->name('user.blogs');
 Route::get('/blogs/{slug}',[BlogController::class,'details'])->name('user.blogs.details');

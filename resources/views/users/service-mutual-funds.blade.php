@@ -36,7 +36,7 @@
                             {{ Str::limit(strip_tags($subservice->description), 150, '...') }}
                         </p>
                         <div class="d-flex align-items-center">
-                            <img src="{{ asset('assets/img/logo background.png') }}" alt="" class="img-fluid post-author-img flex-shrink-0">
+                            <img src="{{ asset('assets/img/logo background.webp') }}" alt="" class="img-fluid post-author-img flex-shrink-0">
                             <div class="post-meta">
                                 <p class="post-author">Roy's Invest</p>
                             </div>
@@ -53,32 +53,12 @@
 <!-- Partner Logos Section -->
 <section id="clients" class="clients section">
     <div class="clients-carousel">
-        {{-- @foreach ($partners as $partner) --}}
-            {{-- <div class="client-item"> --}}
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-1.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-2.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-3.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-4.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-5.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-6.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-7.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-8.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/logo-bg.png') }}" class="img-fluid" alt=""></div> 
-              <div class="client-item"><img src="{{ asset('assets/img/services.jpg') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/services/Building & Freight Insurance.webp') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-3.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-4.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-5.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-6.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-7.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/clients/client-8.png') }}" class="img-fluid" alt=""></div>
-              <div class="client-item"><img src="{{ asset('assets/img/logo-bg.png') }}" class="img-fluid" alt=""></div>    
-            {{-- </div> --}}
-        {{-- @endforeach --}}
+        @foreach ($partners as $partner)
+              <div class="client-item"><img src="{{ asset('storage/' . $partner->logo) }}" class="img-fluid" alt="{{ $partner->name }}"></div>   
+        @endforeach
     </div>
-</section>
+</section><br>
 
-{{-- ===== Custom CSS ===== --}}
 <style>
 
 /* Clients section */

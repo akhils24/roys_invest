@@ -25,7 +25,7 @@
                     <div class="container">
                         <article class="article">
                             <div class="post-img">
-                                <img src="{{ asset('storage/' . $blog->image1) }}" alt="" class="img-fluid">
+                                <img src="{{ asset('storage/' . $blog->image1) }}" alt="{{ $blog->title }}" class="img-fluid">
                             </div>
                             <h2 class="title">{{ $blog->title }}</h2>
                             <div class="meta-top">
@@ -58,14 +58,14 @@
                     <div class="blog-author-widget widget-item">
                         <div class="d-flex flex-column align-items-center">
                             <div class="d-flex align-items-center w-100">
-                                <img src="{{ asset('assets/img/logo-bg.png') }}" class="rounded-circle flex-shrink-0" alt="Logo">
+                                <img src="{{ asset('assets/img/logo-bg.webp') }}" class="rounded-circle flex-shrink-0" alt="Logo">
                                 <div>
                                 <h4>Roy's Invest</h4>
                                 <div class="social-links">
-                                    <a href="https://x.com/#"><i class="bi bi-twitter-x"></i></a>
-                                    <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
-                                    <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
-                                    <a href="https://instagram.com/#"><i class="biu bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                                    <a href="https://www.facebook.com/share/1F58sma337/?mibextid=wwXIfr" target="_blank"><i class="bi bi-facebook"></i></a>
+                                    <a href="https://www.instagram.com/roys.invest?igsh=NWltdHZ4eTNkZWhl&utm_source=qr" target="_blank"><i class="biu bi-instagram"></i></a>
+                                    <a href="https://www.linkedin.com/company/roy-s-invest-linkedin-in/" target="_blank"><i class="biu bi-linkedin"></i></a>
                                 </div>
                                 </div>
                             </div>

@@ -4,7 +4,7 @@
 <!-- Hero Section -->
 <section id="hero" class="hero section dark-background">
 
-  <img src="{{ asset('assets/img/hero-bg.jpg')}}" alt="" data-aos="fade-in">
+  <img src="{{ asset('assets/img/hero-bg.webp')}}" alt="" data-aos="fade-in">
 
   <div class="container d-flex flex-column align-items-center text-center">
     <h2 data-aos="fade-up" data-aos-delay="100">Roy's Invest: Where Investment Meets Trust</h2>
@@ -72,7 +72,7 @@
 <!-- Call To Action Section -->
 <section id="call-to-action" class="call-to-action section dark-background">
 
-  <img src="assets/img/cta-bg.jpg" alt="">
+  <img src="assets/img/cta-bg.webp" alt="">
 
   <div class="container">
 
@@ -82,7 +82,7 @@
         <p>Let us help you build wealth, protect what matters, and plan with confidence. Get expert guidance today.</p>
       </div>
       <div class="col-xl-3 cta-btn-container text-center">
-        <a class="cta-btn align-middle" href="tel:+911234567890">Call Now</a>
+        <a class="cta-btn align-middle" href="tel:098461 44168">Call Now</a>
       </div>
     </div>
 
@@ -110,7 +110,7 @@
               <a href="{{ route('user.blogs.details',$blog->slug) }}">{{ $blog->title}}</a>
             </h2>
             <div class="d-flex align-items-center">
-              <img src="assets/img/logo background.png" alt="" class="img-fluid post-author-img flex-shrink-0">
+              <img src="assets/img/logo background.webp" alt="" class="img-fluid post-author-img flex-shrink-0">
               <div class="post-meta">
                 <p class="post-author">Roy's Invest</p>
                 <p class="post-date">
@@ -217,7 +217,7 @@
         <div class="swiper-slide">
           <div class="testimonial-item">
             <div class="testimonial-author mb-2">
-              <img src="${r.profile_photo_url || '/assets/img/logo background.png'}" alt="${r.author_name || 'Customer'}" class="rounded-circle" style="width:48px;height:48px;object-fit:cover;">
+              <img src="${r.profile_photo_url || '/assets/img/logo background.webp'}" alt="${r.author_name || 'Customer'}" class="rounded-circle" style="width:48px;height:48px;object-fit:cover;">
               <div>
                 <strong>${r.author_name || 'Anonymous'}</strong>
                 <div class="small text-muted">
@@ -288,7 +288,7 @@
 <!-- Stats Section --> 
 <section id="stats" class="stats section dark-background">
 
-  <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
+  <img src="assets/img/stats-bg.webp" alt="" data-aos="fade-in">
 
   <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
 
@@ -383,7 +383,7 @@
       </div>
 
       <div class="col-lg-5 order-1 order-lg-2">
-        <img src="assets/img/faq.jpg" class="img-fluid" alt="FAQ" data-aos="zoom-in" data-aos-delay="100">
+        <img src="assets/img/faq.webp" class="img-fluid" alt="FAQ" data-aos="zoom-in" data-aos-delay="100">
       </div>
     </div>
 
@@ -391,7 +391,7 @@
 
 </section><!-- /Faq Section -->
 
-<!-- Portfolio Section -->
+<!-- Gallery Section -->
 <section id="portfolio" class="portfolio section">
       <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
@@ -442,15 +442,17 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-             
-            </div><!-- End Portfolio Item -->
+            </div>
 
-          </div><!-- End Portfolio Container -->
+          </div>
         </div>
-
-    </div><!-- End Gallery Row -->
-  </div><!-- End Container -->
-
+    </div>
+  </div>
+  <div class="text-center mt-3">
+    <a href="/gallery" id="more-reviews-link" class="read-more">
+      <span>See more on Roy's Invest </span><i class="bi bi-arrow-right"></i>
+    </a>
+  </div>
 </section><!-- End Gallery Section -->
 
 <!-- Contact Section --> 
@@ -487,7 +489,7 @@
           <i class="bi bi-envelope flex-shrink-0"></i>
           <div>
             <h3>Email Us</h3>
-            <p>info@example.com</p> <!-- Replace with your real email if available -->
+            <p>roysinvest00@gmail.com</p> <!-- Replace with your real email if available -->
           </div>
         </div><!-- End Info Item -->
 

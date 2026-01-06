@@ -8,7 +8,7 @@
   <meta name="description" content="@yield('meta_description','Roy\'s Invest: Your trusted partner for comprehensive investment solutions in Kochi, Kerala. Where investment meets trust, we offer expert guidance on LIC policies, mutual funds, and personalized financial planning. Secure your future with us.')">
 
   <!-- Favicons -->
-  <link href="{{ asset('assets/img/logo background.png') }}" rel="icon">
+  <link href="{{ asset('assets/img/logo background.webp') }}" rel="icon">
 
   <!-- Fonts -->
   <link href="{{ asset('https://fonts.googleapis.com') }}" rel="preconnect">
@@ -72,7 +72,7 @@
   </main>
 
   <!-- footer -->
-  {{-- @include('users.partials.footer ') --}}
+  @include('users.partials.footer ')
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top"><i class="bi bi-arrow-up-short"></i></a>

@@ -2,13 +2,8 @@
 <div class="sidebar-logo">
     <!-- Logo Header -->
     <div class="logo-header" data-background-color="dark">
-    <a href="/" class="logo">
-        <img
-        src="{{ asset('assets/img/kaiadmin/logo_light.svg') }}"
-        alt="navbar brand"
-        class="navbar-brand"
-        height="20"
-        />
+    <a href="" class="logo">
+        <img src="{{ asset('assets/img/admin-logo.webp') }}" alt="navbar brand" class="navbar-brand" height="30" />
     </a>
     <div class="nav-toggle">
         <button class="btn btn-toggle toggle-sidebar">
@@ -34,24 +29,39 @@
             <h4 class="text-section">Content Management</h4>
         </li>
         <li class="nav-item">
-            <a  href="/admin-blogs"> <i class="fas fa-address-book"></i> <p>Blog Management</p></a>
+            <a  href="/admin-blogs"> <i class="fas fa-file-alt"></i> <p>Blog Management</p></a>
         </li>
         <li class="nav-item">
-            <a  href="{{ route('admin.services') }}"> <i class="fas fa-address-book"></i> <p>Services Management</p></a>
+            <a  href="{{ route('admin.services') }}"> <i class="fas fa-book-open"></i> <p>Services Management</p></a>
         </li>
         <li class="nav-item">
-            <a  href="{{ route('admin.subservices') }}"> <i class="fas fa-address-book"></i> <p>Sub-Services Management</p></a>
+            <a  href="{{ route('admin.subservices') }}"> <i class="fas fa-book-reader"></i> <p>Sub-Services Management</p></a>
+        </li>
+
+        <li class="nav-section"><span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>
+            <h4 class="text-section">Contact Management</h4>
+        </li>
+        <li class="nav-item">
+            <a  href="{{ route('admin.contacts') }}"> <i class="fas fa-child"></i> <p>Customer Queries</p></a>
         </li>
 
         <li class="nav-section"><span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>
             <h4 class="text-section">Media Management</h4>
         </li>
          <li class="nav-item">
-            <a  href="{{ route('admin.catgallery') }}"> <i class="fas fa-address-book"></i> <p>Category Management</p></a>
+            <a  href="{{ route('admin.catgallery') }}"> <i class="fas fa-camera"></i> <p>Category Management</p></a>
         </li>
         <li class="nav-item">
-            <a  href="{{ route('admin.gallery') }}"> <i class="fas fa-address-book"></i> <p>Gallery Management</p></a>
+            <a  href="{{ route('admin.gallery') }}"> <i class="fas fa-camera-retro"></i> <p>Gallery Management</p></a>
         </li>
+
+        <li class="nav-section"><span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>
+            <h4 class="text-section">Partners Management</h4>
+        </li>
+         <li class="nav-item">
+            <a  href="{{ route('admin.partners') }}"> <i class="fas fa-fingerprint"></i> <p>Mutual-Funds Partners</p></a>
+        </li>
+
     </ul>
     </div>
 </div>

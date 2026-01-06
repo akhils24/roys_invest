@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\blog;
+use App\Models\partners;
 use App\Models\service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -51,7 +52,8 @@ class ServiceController extends Controller
         if($service->subServices->count() > 1) {
             $subservices = $service->subServices->where('status',true);
             if($service->slug == 'mutual-funds') {
-                return view('users.service-mutual-funds', compact('service','subservices'));
+                $partners=partners::where('category','Mutual Fund')->where('status',true)->get();
+                return view('users.service-mutual-funds', compact('service','subservices','partners'));
             } else {
                 return view('users.service-list', compact('service','subservices'));
             }

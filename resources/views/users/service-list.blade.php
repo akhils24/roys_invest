@@ -36,7 +36,7 @@
                             {{ Str::limit(strip_tags($subservice->description), 150, '...') }}
                         </p>
                         <div class="d-flex align-items-center">
-                            <img src="{{ asset('assets/img/logo background.png') }}" alt="" class="img-fluid post-author-img flex-shrink-0">
+                            <img src="{{ asset('assets/img/logo background.webp') }}" alt="" class="img-fluid post-author-img flex-shrink-0">
                             <div class="post-meta">
                                 <p class="post-author">Roy's Invest</p>
                             </div>

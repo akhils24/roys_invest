@@ -57,14 +57,14 @@
                     <div class="blog-author-widget widget-item">
                         <div class="d-flex flex-column align-items-center">
                             <div class="d-flex align-items-center w-100">
-                                <img src="{{ asset('assets/img/logo-bg.png') }}" class="rounded-circle flex-shrink-0" alt="Logo">
+                                <img src="{{ asset('assets/img/logo-bg.webp') }}" class="rounded-circle flex-shrink-0" alt="Logo">
                                 <div>
                                 <h4>Roy's Invest</h4>
                                 <div class="social-links">
-                                    <a href="https://x.com/#"><i class="bi bi-twitter-x"></i></a>
-                                    <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
-                                    <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
-                                    <a href="https://instagram.com/#"><i class="biu bi-linkedin"></i></a>
+                                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                                    <a href="https://www.facebook.com/share/1F58sma337/?mibextid=wwXIfr" target="_blank"><i class="bi bi-facebook"></i></a>
+                                    <a href="https://www.instagram.com/roys.invest?igsh=NWltdHZ4eTNkZWhl&utm_source=qr" target="_blank"><i class="biu bi-instagram"></i></a>
+                                    <a href="https://www.linkedin.com/company/roy-s-invest-linkedin-in/" target="_blank"><i class="biu bi-linkedin"></i></a>
                                 </div>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@
     </div>
     <!-- Call To Action Section -->
 <section id="call-to-action" class="call-to-action section dark-background">
-  <img src="{{ asset('assets/img/cta-bg.jpg') }}" alt="">
+  <img src="{{ asset('assets/img/cta-bg.webp') }}" alt="">
   <div class="container">
     <div class="row" data-aos="zoom-in" data-aos-delay="100">
       <div class="col-xl-9 text-center text-xl-start">
@@ -150,7 +150,7 @@
         <p>Let us help you build wealth, protect what matters, and plan with confidence. Get expert guidance today.</p>
       </div>
       <div class="col-xl-3 cta-btn-container text-center">
-        <a class="cta-btn align-middle" href="tel:+911234567890">Call Now</a>
+        <a class="cta-btn align-middle" href="tel:098461 44168">Call Now</a>
       </div>
     </div>
   </div>

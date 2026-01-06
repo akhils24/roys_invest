@@ -2,7 +2,7 @@
 <div class="container position-relative d-flex align-items-center justify-content-between">
 
     <a href="{{ route('index') }}" class="logo d-flex align-items-center me-auto me-xl-0">
-    <img src="{{asset('assets/img/logo1.png')}}" alt="">
+    <img src="{{asset('assets/img/logo1.webp')}}" alt="">
     <h1 class="sitename">ROY'S INVEST</h1>
     </a>
 
@@ -13,12 +13,11 @@
     <li><a href="/#services">Services</a></li>
     <li><a href="/#blogs">Blog</a></li>
     <li><a href="/#contact">Contact Us</a></li>
-    <li><a href="/#contact">Gallery</a></li>
+    <li><a href="/#portfolio">Gallery</a></li>
     </ul>
     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
 
-    <a class="cta-btn" href="/#about">Explore Policies</a>
-
+    <a class="cta-btn" href="tel:09846144168">Call Now</a>
 </div>
 </header>

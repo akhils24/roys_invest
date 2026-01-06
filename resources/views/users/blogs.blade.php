@@ -31,7 +31,7 @@
               <a href="{{ route('user.blogs.details',$blog->slug) }}">{{ $blog->title}}</a>
             </h2>
             <div class="d-flex align-items-center">
-              <img src="assets/img/logo background.png" alt="" class="img-fluid post-author-img flex-shrink-0">
+              <img src="assets/img/logo background.webp" alt="" class="img-fluid post-author-img flex-shrink-0">
               <div class="post-meta">
                 <p class="post-author">Roy's Invest</p>
                 <p class="post-date">

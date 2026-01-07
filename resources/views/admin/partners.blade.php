@@ -56,7 +56,7 @@
                                 <tr>
                                     <td>{{ $partner->id }}</td>
                                     <td>{{ $partner->name }}</td>
-                                    <td><img src="{{ asset(public_storage/'.$partner->logo) }}" width="50"></td>
+                                    <td><img src="{{ asset('public_storage/'.$partner->logo) }}" width="50"></td>
                                     <td>{{ $partner->status ? 'Active' : 'Inactive' }}</td>
                                     <td>
                                         <div class="form-button-action">

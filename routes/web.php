@@ -23,7 +23,7 @@ Route::get('/proxy-image', [GoogleReviewController::class, 'proxyImage'])->name(
 // admin side management
 Route::get('/admin/login', [AuthController::class, 'show'])->name('login');
 Route::post('/admin/login', [AuthController::class, 'index'])->name('login.auth');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
 Route::middleware('auth')->group(function (){
     

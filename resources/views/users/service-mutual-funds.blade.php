@@ -54,7 +54,7 @@
 <section id="clients" class="clients section">
     <div class="clients-carousel">
         @foreach ($partners as $partner)
-              <div class="client-item"><img src="{{ asset('storage/' . $partner->logo) }}" class="img-fluid" alt="{{ $partner->name }}"></div>   
+              <div class="client-item"><img src="{{ asset('public_storage/' . $partner->logo) }}" class="img-fluid" alt="{{ $partner->name }}"></div>   
         @endforeach
     </div>
 </section><br>

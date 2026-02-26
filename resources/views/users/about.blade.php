@@ -30,7 +30,6 @@
         </div>
     </div>
 </section>
-
 <!-- ABOUT / COMPANY HISTORY -->
 <section class="section">
     <div class="container">
@@ -49,8 +48,6 @@
         </div>
     </div>
 </section>
-
-
 <!-- SERVICES -->
 <section class="section bg-light">
     <div class="container">
@@ -92,12 +89,10 @@
         </div>
     </div>
 </section>
-
 <!-- PHOTO GALLERY -->
 <section class="section">
     <div class="container">
         <h2 class="text-center fw-bold mb-4">Company Photos</h2>
-        {{-- <p class="text-center" style="color:var(--muted)">Click to enlarge. Replace placeholders with real images in <strong>public/images</strong>.</p> --}}
         <div class="photo-gallery mt-4">
             <div class="photo-item"><img src="{{ asset('assets/img/company-photo.webp') }}" alt="photo 1"></div>
             <div class="photo-item"><img src="{{ asset('assets/img/team-photo.webp') }}" alt="photo 2"></div>
@@ -105,7 +100,6 @@
         </div>
     </div>
 </section>
-
 <!-- TEAM -->
 <section class="section bg-light">
     <div class="container">
@@ -114,7 +108,6 @@
             <div class="team-card-full">
                 <img src="{{ asset('assets/img/roy.webp') }}" alt="CEO">
                 <h5 class="fw-bold mt-3">Roy K. Paul – Founder & CEO</h5>
-                {{-- <h5 class="fw-bold mt-3">CEO & Founder</h5> --}}
                 <p class="text-muted" style="font-size:0.9rem; margin-bottom:12px">Roy K. Paul, Founder and CEO of RoysInvest, began his career in financial services in 1986 with the Life Insurance Corporation of India. Over nearly four decades, he has built a strong reputation for integrity, disciplined financial planning, and long-term client relationships, earning multiple recognitions including CM’s Club Membership and senior advisory roles in the Ernakulam region.</p>
                 <p style="color:#333; line-height:1.6">Under his leadership, RoysInvest has grown from insurance services into a comprehensive financial advisory firm offering mutual fund guidance, debt investments, risk management, and structured wealth planning. Today, the company proudly serves second- and third-generation clients — a testament to the trust, transparency, and lasting financial partnerships he has nurtured.</p>
             </div>
@@ -122,15 +115,12 @@
             <div class="team-card-full">
                 <img src="{{ asset('assets/img/jithin.webp') }}" alt="Co-Founder">
                 <h5 class="fw-bold mt-3">Jitin K. Roy – CIO</h5>
-                {{-- <h5 class="fw-bold mt-3">Manager</h5> --}}
                 <p class="text-muted" style="font-size:0.9rem; margin-bottom:12px">Jitin K. Roy represents the next generation of leadership at RoysInvest, combining modern market insight with the strong legacy built by his father. With experience across equity investments, mutual funds, debt instruments, commodities, and portfolio planning, he focuses on helping clients make structured, goal-based financial decisions supported by research and disciplined risk management.</p>
                 <p style="color:#333; line-height:1.6">By blending innovation with RoysInvest’s longstanding culture of trust and personalized service, Jitin plays a key role in strengthening investor confidence and supporting sustainable wealth creation. His approach ensures the firm continues to evolve while preserving the values that have defined RoysInvest for decades.</p>
             </div>
         </div>
     </div>
 </section>
-
-
 <!-- STATS -->
 <section class="section text-center">
     <div class="container">
@@ -160,8 +150,6 @@
         </div>
     </div>
 </section>
-
-
 <!-- TECHNOLOGY -->
 <section class="section bg-light">
     <div class="container text-center">
@@ -181,8 +169,6 @@
         </div>
     </div>
 </section>
-
-
 <!-- CTA -->
 <section class="cta" style="background:linear-gradient(135deg, rgba(22,163,74,0.95), rgba(16,185,129,0.9)); color:#fff">
     <div class="container">
@@ -195,7 +181,6 @@
     </div>
 </section>
 </div>
-
 <section id="contact" class="contact section light-background">
   <div class="container section-title" data-aos="fade-up">
     <h2>Contact Us</h2>
@@ -254,5 +239,4 @@
     </div>
   </div>
 </section>
-
 @endsection

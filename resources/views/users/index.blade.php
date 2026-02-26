@@ -1,11 +1,8 @@
 @extends('users.layouts.app')
 @section('content')
 
-<!-- Hero Section -->
 <section id="hero" class="hero section dark-background">
-
   <img src="{{ asset('assets/img/hero-bg.webp')}}" alt="" data-aos="fade-in">
-
   <div class="container d-flex flex-column align-items-center text-center">
     <h2 data-aos="fade-up" data-aos-delay="100">Roy's Invest: Where Investment Meets Trust</h2>
     <p data-aos="fade-up" data-aos-delay="200">Your Trusted Financial Partner Since 1986</p>
@@ -13,10 +10,7 @@
       <a href="{{ asset('https://youtu.be/A6fv0b6iVuA?si=Hvcn3vByGEMau6No')}}" class="glightbox pulsating-play-btn"></a>
     </div>
   </div>
-
-</section><!-- /Hero Section -->
-
-<!-- About Section -->
+</section>
 <section id="about" class="about section">  
   <div class="container section-title" data-aos="fade-up">
     <h2>About</h2>
@@ -41,8 +35,6 @@
     </div>
   </div>
 </section>
-
-<!-- Services Section -->
 <section id="services" class="services section">
   <div class="container section-title" data-aos="fade-up">
     <h2>Our Services</h2>
@@ -50,7 +42,6 @@
   </div>
   <div class="container">
     <div class="row gy-4">
-
     @forelse ($services as $service)
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
         <div class="service-item position-relative">
@@ -64,18 +55,12 @@
     @empty
         <p>No services available.</p>
     @endforelse
-
     </div>
   </div>
-</section><!-- End Services Section -->
-
-<!-- Call To Action Section -->
+</section>
 <section id="call-to-action" class="call-to-action section dark-background">
-
   <img src="assets/img/cta-bg.webp" alt="">
-
   <div class="container">
-
     <div class="row" data-aos="zoom-in" data-aos-delay="100">
       <div class="col-xl-9 text-center text-xl-start">
         <h3>Take Control of Your Financial Future</h3>
@@ -85,12 +70,8 @@
         <a class="cta-btn align-middle" href="tel:098461 44168">Call Now</a>
       </div>
     </div>
-
   </div>
-
-</section><!-- /Call To Action Section -->
-
-<!-- Recent Blog Posts Section -->
+</section>
 <section id="blogs" class="recent-posts section">
   <div class="container section-title" data-aos="fade-up">
     <h2>Recent Blog Posts</h2>
@@ -288,73 +269,52 @@
   </script>
 </section>
 
-
-<!-- Stats Section --> 
 <section id="stats" class="stats section dark-background">
-
   <img src="assets/img/stats-bg.webp" alt="" data-aos="fade-in">
-
   <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-
     <div class="subheading">
       <h3>Trusted by Businesses and Individuals Alike</h3>
       <p>Our numbers speak for themselves—demonstrating the confidence our clients place in our services.</p>
     </div>
-
     <div class="row gy-4">
-
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
           <span class="purecounter" data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="1"></span>
           <p>Satisfied Clients</p>
         </div>
-      </div><!-- End Stats Item -->
-
+      </div>
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
           <span class="purecounter" data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1"></span>
           <p>Financial Plans Delivered</p>
         </div>
-      </div><!-- End Stats Item -->
-
+      </div>
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
           <span class="purecounter" data-purecounter-start="0" data-purecounter-end="1500" data-purecounter-duration="1"></span>
           <p>Hours of Consulting</p>
         </div>
-      </div><!-- End Stats Item -->
-
+      </div>
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
           <span class="purecounter" data-purecounter-start="0" data-purecounter-end="400" data-purecounter-duration="1"></span>
           <p>Team Members</p>
         </div>
-      </div><!-- End Stats Item -->
-
+      </div>
     </div>
-
   </div>
-
-</section><!-- /Stats Section -->
-
-  <!-- Faq Section -->
+</section>
 <section id="faq" class="faq section">
-
   <div class="container-fluid">
-
     <div class="row gy-4">
-
       <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
-
         <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
           <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
           <p>
             Have questions about managing your finances? Here are answers to some common queries to help you get started.
           </p>
         </div>
-
         <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
-
           <div class="faq-item faq-active">
             <i class="faq-icon bi bi-question-circle"></i>
             <h3>Why should I work with a financial advisor?</h3>
@@ -362,8 +322,7 @@
               <p>A financial advisor helps you create a customized plan to manage your finances, invest wisely, plan for retirement, and reach your financial goals more efficiently.</p>
             </div>
             <i class="faq-toggle bi bi-chevron-right"></i>
-          </div><!-- End Faq item-->
-
+          </div>
           <div class="faq-item">
             <i class="faq-icon bi bi-question-circle"></i>
             <h3>What is the minimum investment needed to get started?</h3>
@@ -371,8 +330,7 @@
               <p>We cater to a wide range of clients, and there is no fixed minimum. Our plans are tailored to your needs, whether you're just starting out or looking to grow a substantial portfolio.</p>
             </div>
             <i class="faq-toggle bi bi-chevron-right"></i>
-          </div><!-- End Faq item-->
-
+          </div>
           <div class="faq-item">
             <i class="faq-icon bi bi-question-circle"></i>
             <h3>Is my financial information kept confidential?</h3>
@@ -380,24 +338,16 @@
               <p>Absolutely. We follow strict privacy protocols and industry standards to ensure your personal and financial data is always secure and confidential.</p>
             </div>
             <i class="faq-toggle bi bi-chevron-right"></i>
-          </div><!-- End Faq item-->
-
+          </div>
         </div>
-
       </div>
-
       <div class="col-lg-5 order-1 order-lg-2">
         <img src="assets/img/faq.webp" class="img-fluid" alt="FAQ" data-aos="zoom-in" data-aos-delay="100">
       </div>
     </div>
-
   </div>
-
-</section><!-- /Faq Section -->
-
-<!-- Gallery Section -->
+</section>
 <section id="portfolio" class="portfolio section">
-      <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
       <h2>Gallery</h2>
       <p>A glimpse into Roys Invest’s legacy of trusted financial guidance and long-term client relationships</p>
@@ -405,10 +355,9 @@
     <div class="container">
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
             @forelse ($galleries as $gallery)
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                <img src="{{ asset('storage/' . $gallery->image) }}" class="img-fluid" alt="{{ $gallery->slug }}">
+                <img src="{{ asset('public_storage/' . $gallery->image) }}" class="img-fluid" alt="{{ $gallery->slug }}">
               </div>
             @empty
               <p>No gallery images available.</p>
@@ -422,21 +371,14 @@
       <span>See more on Roy's Invest </span><i class="bi bi-arrow-right"></i>
     </a>
   </div>
-</section><!-- End Gallery Section -->
-
-<!-- Contact Section --> 
+</section>
 <section id="contact" class="contact section light-background">
-
-  <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
     <h2>Contact</h2>
     <p>Get in touch with Roys Invest — trusted by 3000+ clients with ₹250 Crores in assets under management.</p>
-  </div><!-- End Section Title -->
-
+  </div>
   <div class="container" data-aos="fade" data-aos-delay="100">
-
     <div class="row gy-4">
-
       <div class="col-lg-4">
         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
           <i class="bi bi-geo-alt flex-shrink-0"></i>
@@ -444,64 +386,48 @@
             <h3>Address</h3>
             <p>Building, Oppo. Johnson Lifts Pvt. Ltd, Twin Tower, Seaport - Airport Rd, Irumpanam, Kochi, Kerala 682309</p>
           </div>
-        </div><!-- End Info Item -->
-
+        </div>
         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
           <i class="bi bi-telephone flex-shrink-0"></i>
           <div>
             <h3>Call Us</h3>
             <p>098461 44168</p>
           </div>
-        </div><!-- End Info Item -->
-
+        </div>
         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
           <i class="bi bi-envelope flex-shrink-0"></i>
           <div>
             <h3>Email Us</h3>
-            <p>roysinvest00@gmail.com</p> <!-- Replace with your real email if available -->
+            <p>roysinvest00@gmail.com</p>
           </div>
-        </div><!-- End Info Item -->
-
+        </div>
       </div>
-
       <div class="col-lg-8">
         <form action="{{ route('user.contact') }}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
           @csrf
           <div class="row gy-4">
-
             <div class="col-md-6">
               <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
             </div>
-
             <div class="col-md-6">
               <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
             </div>
-
             <div class="col-md-12">
               <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
             </div>
-
             <div class="col-md-12">
               <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
             </div>
-
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
               <div class="sent-message">Your message has been sent. Thank you!</div>
-
               <button type="submit">Send Message</button>
             </div>
-
           </div>
         </form>
-      </div><!-- End Contact Form -->
-
+      </div>
     </div>
-
   </div>
-
-</section><!-- /Contact Section -->
-
-
+</section>
  @endsection

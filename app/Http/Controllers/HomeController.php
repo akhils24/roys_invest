@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\blog;
+use App\Models\gallery;
 use App\Models\service;
 use App\Models\contact;
 use App\Models\subservice;
@@ -14,12 +15,13 @@ class HomeController extends Controller
     {
         $blogs=blog::latest()->where('status', true)->take(3)->get();
         $services=service::all()->where('status', true);
-        return view("users.index",compact('blogs','services'));
+        $galleries = gallery::query()->where('status', true)->whereBetween('priority',[1,10] )->orderBy('priority')->limit(8)->get();
+        return view("users.index",compact('blogs','services','galleries'));
     }
 
-    public function create()
+    public function about()
     {
-        //
+        return view("users.about");
     }
 
     public function store(Request $request)

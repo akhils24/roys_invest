@@ -23,10 +23,13 @@
     <div class="sidebar-content">
     <ul class="nav nav-secondary">
         <li class="nav-item active">
-        <a href="/login" class="collapsed" aria-expanded="false"><i class="fas fa-home"></i><p>Dashboard</p></a>
+        <a href="/admin/dashboard" class="collapsed" aria-expanded="false"><i class="fas fa-home"></i><p>Dashboard</p></a>
         </li>
         <li class="nav-section"><span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>
             <h4 class="text-section">Content Management</h4>
+        </li>
+        <li class="nav-item">
+            <a  href="/admin-about"> <i class="fas fas fa-dove"></i> <p>About Management</p></a>
         </li>
         <li class="nav-item">
             <a  href="/admin-blogs"> <i class="fas fa-file-alt"></i> <p>Blog Management</p></a>

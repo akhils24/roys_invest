@@ -10,14 +10,14 @@
     <h2 data-aos="fade-up" data-aos-delay="100">Roy's Invest: Where Investment Meets Trust</h2>
     <p data-aos="fade-up" data-aos-delay="200">Your Trusted Financial Partner Since 1986</p>
     <div data-aos="fade-up" data-aos-delay="300">
-      <a href="{{ asset('https://www.youtube.com/watch?v=Y7f98aduVJ8')}}" class="glightbox pulsating-play-btn"></a>
+      <a href="{{ asset('https://youtu.be/A6fv0b6iVuA?si=Hvcn3vByGEMau6No')}}" class="glightbox pulsating-play-btn"></a>
     </div>
   </div>
 
 </section><!-- /Hero Section -->
 
 <!-- About Section -->
-<section id="about" class="about section">
+<section id="about" class="about section">  
   <div class="container section-title" data-aos="fade-up">
     <h2>About</h2>
     <p>At Roy's Invest, we specialize in helping you make confident financial decisions through personalized insurance and investment solutions. With a legacy of over 35 years, we stand for trust, experience, and commitment.</p>
@@ -36,7 +36,7 @@
       </div>
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
         <p> Our approach is simple: understand your goals and provide clear, practical strategies to help you reach them. We focus on building long-term relationships that span generations — because your future deserves nothing less.</p>
-        <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+        <a href="/about" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -95,7 +95,6 @@
   <div class="container section-title" data-aos="fade-up">
     <h2>Recent Blog Posts</h2>
     <p>Explore expert insights and the latest financial trends to stay ahead in your wealth journey.</p>
-    <a href="/blogs" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
   </div>
   <div class="container">
     <div class="row gy-4">
@@ -124,6 +123,11 @@
           <p>No blogs available.</p>
       @endforelse
     </div>
+  </div>
+  <div class="text-center mt-3">
+    <a href="/blogs" id="more-reviews-link" class="read-more">
+      <span>Read more blogs</span><i class="bi bi-arrow-right"></i>
+    </a>
   </div>
 </section>
 
@@ -396,54 +400,19 @@
       <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
       <h2>Gallery</h2>
-      <p>UPDATES</p>
+      <p>A glimpse into Roys Invest’s legacy of trusted financial guidance and long-term client relationships</p>
     </div>
     <div class="container">
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
-   
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
-              
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-              
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
-              
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
-             
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-             
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-            </div>
-
+            @forelse ($galleries as $gallery)
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                <img src="{{ asset('storage/' . $gallery->image) }}" class="img-fluid" alt="{{ $gallery->slug }}">
+              </div>
+            @empty
+              <p>No gallery images available.</p>
+            @endforelse
           </div>
         </div>
     </div>

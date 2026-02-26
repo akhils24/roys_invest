@@ -1,0 +1,14 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='700' viewBox='0 0 1600 700'>
+  <defs>
+    <linearGradient id='g' x1='0' x2='1'>
+      <stop offset='0' stop-color='#e6fffa'/>
+      <stop offset='1' stop-color='#bbf7d0'/>
+    </linearGradient>
+  </defs>
+  <rect width='100%' height='100%' fill='url(#g)' />
+  <g fill='none' stroke='#10b981' stroke-opacity='0.12' stroke-width='140'>
+    <circle cx='200' cy='120' r='200'/>
+    <circle cx='1400' cy='500' r='220'/>
+  </g>
+  <!-- Decorative hero background without embedded text so content is editable in HTML -->
+</svg>

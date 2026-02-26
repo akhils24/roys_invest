@@ -29,6 +29,9 @@
             <h4 class="text-section">Content Management</h4>
         </li>
         <li class="nav-item">
+            <a  href="/admin-about"> <i class="fas fas fa-dove"></i> <p>About Management</p></a>
+        </li>
+        <li class="nav-item">
             <a  href="/admin-blogs"> <i class="fas fa-file-alt"></i> <p>Blog Management</p></a>
         </li>
         <li class="nav-item">

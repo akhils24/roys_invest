@@ -21,7 +21,7 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'     => 'required|string|max:255',
+            'name'     => 'required|string|max:255|unique:galleries,title',
             'category' => 'required|integer|exists:catgalleries,id',
             'priority' => 'required|integer',
             'img1'     => 'required|image|mimes:jpg,jpeg,png,webp',
@@ -80,7 +80,7 @@ class GalleryController extends Controller
     public function update(Request $request, $id)
     {
          $request->validate([
-            'name'     => 'required|string|max:255',
+            'name'     => 'required|string|max:255|unique:galleries,title,'.$id,
             'category' => 'required|integer|exists:catgalleries,id',
             'priority' => 'required|integer',
             'img1'     => 'image|mimes:jpg,jpeg,png,webp',

@@ -28,6 +28,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 Route::middleware('auth')->group(function (){
     
     Route::get('/admin/dashboard', function () { return view('admin.dash'); })->name('admin.dashboard');
+
+    //about
+    // Route::get('/admin-about,')
     // blogs
     Route::get('/admin-blogs',[BlogController::class,'index'])->name('admin.blogs');
     Route::get('/addblogs',[BlogController::class,'create'])->name('admin.addblogs');
@@ -82,6 +85,8 @@ Route::middleware('auth')->group(function (){
 });
 
 // user side routes
+Route::get('/about',[HomeController::class,'about'])->name('user.about');
+
 Route::post('/contact',[ContactController::class,'store'])->name('user.contact');
 
 Route::get('/gallery',[GalleryController::class,'show'])->name('user.gallery');

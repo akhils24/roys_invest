@@ -50,7 +50,7 @@ class CatgalleryController extends Controller
     public function update(Request $request,$id)
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:catgalleries,name',
+            'name' => 'required|string|max:255|unique:catgalleries,name,'.$id,
             'description' => 'nullable|string',
             'display_order' =>  'required|integer|min:0|unique:catgalleries,display_order,'.$id,
         ]);

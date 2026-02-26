@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\contact;
 use Illuminate\Http\Request;
+use App\Mail\ContactNotificationMail;
+use Illuminate\Support\Facades\Mail;
+use League\CommonMark\Node\Inline\Newline;
 
 class ContactController extends Controller
 {
@@ -25,12 +28,13 @@ class ContactController extends Controller
             'subject' => 'string',
             'message'       => 'required|string',
         ]);
-        contact::create([
+        $contact=contact::create([
             'name'        => $request->input('name'),
             'email'        => $request->input('email'),
             'subject' => $request->input('subject'),
             'message'       => $request->input('message'),
         ]);
+        Mail::to('roysinvest00@gmail.com')->send(new ContactNotificationMail($contact));
         return redirect()->back()->with('contact','Your message has been sent. Thank you!');
     }
     public function show(contact $contact)

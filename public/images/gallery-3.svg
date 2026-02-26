@@ -1,0 +1,5 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'>
+  <rect width='100%' height='100%' fill='#ecfeff'/>
+  <rect x='40' y='40' width='720' height='520' rx='14' fill='#ffffff' stroke='#10b981' stroke-opacity='0.06'/>
+  <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Segoe UI, Roboto' font-size='24' fill='#065f46'>Portfolio Snapshot</text>
+</svg>

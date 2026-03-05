@@ -106,7 +106,7 @@
     // WhatsApp link (optional: replace # with your WhatsApp URL)
     document.getElementById('whatsapp-btn').addEventListener('click', (e) => {
       e.preventDefault();
-      window.open('https://wa.me/yournumber', '_blank');
+      window.open('https://wa.me/918547416897?text=Hello%20Roys%20Invest,%20I%20would%20like%20to%20get%20guidance%20on%20financial%20planning%20and%20investment%20options.%20Could%20you%20please%20assist%20me%3F', '_blank');
     });
   </script>
 

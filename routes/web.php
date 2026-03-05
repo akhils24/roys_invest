@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CatgalleryController;
 use App\Http\Controllers\GalleryController;
@@ -11,12 +12,12 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubserviceController;
+use App\Http\Controllers\TestimonialsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 Route::get('/',[HomeController::class,'index'])->name('index');
 
-Route::get('/api/google-reviews', [GoogleReviewController::class, 'api'])->name('google.reviews.api');
 Route::get('/proxy-image', [GoogleReviewController::class, 'proxyImage'])->name('proxy.image');
 
 
@@ -27,10 +28,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
 Route::middleware('auth')->group(function (){
     
-    Route::get('/admin/dashboard', function () { return view('admin.dash'); })->name('admin.dashboard');
-
-    //about
-    // Route::get('/admin-about,')
+    Route::get('/admin/dashboard', [AdminController::class,'index'])->name('admin.dashboard');
+    //testimonials
+    Route::get('/admin-testimonials',[TestimonialsController::class,'index'])->name('admin.testimonials');
+    Route::get('/statustestimonial/{id}/update',[TestimonialsController::class,'destroy'])->name('admin.statustestimonial');
     // blogs
     Route::get('/admin-blogs',[BlogController::class,'index'])->name('admin.blogs');
     Route::get('/addblogs',[BlogController::class,'create'])->name('admin.addblogs');
@@ -90,6 +91,9 @@ Route::get('/about',[HomeController::class,'about'])->name('user.about');
 Route::post('/contact',[ContactController::class,'store'])->name('user.contact');
 
 Route::get('/gallery',[GalleryController::class,'show'])->name('user.gallery');
+
+Route::post('/testimonials',[TestimonialsController::class,'store'])->name('testimonials.store');
+Route::get('/testimonials',[TestimonialsController::class,'show'])->name('user.testimonials');
 
 Route::get('/blogs',[BlogController::class,'show'])->name('user.blogs');
 Route::get('/blogs/{slug}',[BlogController::class,'details'])->name('user.blogs.details');

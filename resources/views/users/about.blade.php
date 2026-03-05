@@ -121,7 +121,7 @@
 
             <div class="team-card-full">
                 <img src="{{ asset('assets/img/jithin.webp') }}" alt="Co-Founder">
-                <h5 class="fw-bold mt-3">Jitin K. Roy – CIO</h5>
+                <h5 class="fw-bold mt-3">Jithin K. Roy – CIO</h5>
                 {{-- <h5 class="fw-bold mt-3">Manager</h5> --}}
                 <p class="text-muted" style="font-size:0.9rem; margin-bottom:12px">Jitin K. Roy represents the next generation of leadership at RoysInvest, combining modern market insight with the strong legacy built by his father. With experience across equity investments, mutual funds, debt instruments, commodities, and portfolio planning, he focuses on helping clients make structured, goal-based financial decisions supported by research and disciplined risk management.</p>
                 <p style="color:#333; line-height:1.6">By blending innovation with RoysInvest’s longstanding culture of trust and personalized service, Jitin plays a key role in strengthening investor confidence and supporting sustainable wealth creation. His approach ensures the firm continues to evolve while preserving the values that have defined RoysInvest for decades.</p>

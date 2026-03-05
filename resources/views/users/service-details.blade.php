@@ -142,9 +142,9 @@
                                                 </ul>
                                             </div>
                                         @endif
-                                        @if(session('success'))
+                                        @if(session('contact'))
                                             <div class="sent-message">
-                                                {{ session('success') }}
+                                                {{ session('contact') }}
                                             </div>
                                         @endif
                                     </div>

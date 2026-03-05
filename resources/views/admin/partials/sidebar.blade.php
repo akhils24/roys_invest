@@ -29,16 +29,16 @@
             <h4 class="text-section">Content Management</h4>
         </li>
         <li class="nav-item">
-            <a  href="/admin-about"> <i class="fas fas fa-dove"></i> <p>About Management</p></a>
-        </li>
-        <li class="nav-item">
             <a  href="/admin-blogs"> <i class="fas fa-file-alt"></i> <p>Blog Management</p></a>
         </li>
         <li class="nav-item">
             <a  href="{{ route('admin.services') }}"> <i class="fas fa-book-open"></i> <p>Services Management</p></a>
         </li>
         <li class="nav-item">
-            <a  href="{{ route('admin.subservices') }}"> <i class="fas fa-book-reader"></i> <p>Sub-Services Management</p></a>
+            <a  href="{{ route('admin.subservices') }}"> <i class="fas fas fa-id-badge"></i> <p>Sub-Services Management</p></a>
+        </li>
+         <li class="nav-item">
+            <a  href="{{ route('admin.testimonials') }}"> <i class="fas fas fa-key"></i> <p>Testimonials Management</p></a>
         </li>
 
         <li class="nav-section"><span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>
@@ -55,7 +55,7 @@
             <a  href="{{ route('admin.catgallery') }}"> <i class="fas fa-camera"></i> <p>Category Management</p></a>
         </li>
         <li class="nav-item">
-            <a  href="{{ route('admin.gallery') }}"> <i class="fas fa-camera-retro"></i> <p>Gallery Management</p></a>
+            <a  href="{{ route('admin.gallery') }}"> <i class="fas fas fa-images"></i> <p>Gallery Management</p></a>
         </li>
 
         <li class="nav-section"><span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>

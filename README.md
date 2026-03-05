@@ -280,15 +280,11 @@ Found a bug? Have an idea? Please [open an issue](https://github.com/yourusernam
 
 ## Security Vulnerability Disclosure
 
-If you discover a security vulnerability in Roys Invest, please email **security@example.com** instead of using the issue tracker. All security vulnerabilities will be promptly addressed.
-
-## License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+If you discover a security vulnerability in Roys Invest, please email **roysinvest00@gmail.com** instead of using the issue tracker. All security vulnerabilities will be promptly addressed.
 
 ## Support & Contact
 
-- 📧 **Email**: [support@example.com](mailto:support@example.com)
+- 📧 **Email**: [support@example.com](mailto:roysinvest00@gmail.com)
 - 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/roys_invest/issues)
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/roys_invest/discussions)
 

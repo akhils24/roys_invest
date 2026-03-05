@@ -103,6 +103,13 @@
                     <div class="recent-posts-widget widget-item">
                         <div class="contact section">
                             <h3 class="widget-title">Contact Us</h3>
+                            <div>
+                                @if(session('contact'))
+                                    <div class="alert alert-success">
+                                        {{ session('contact') }}
+                                    </div>
+                                @endif
+                            </div>
                             <form action="{{ route('user.contact') }}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                                 @csrf
                                 <div class="row gy-4">
@@ -123,11 +130,6 @@
                                                         <li>{{ $error }}</li>
                                                     @endforeach
                                                 </ul>
-                                            </div>
-                                        @endif
-                                        @if(session('contact'))
-                                            <div class="sent-message">
-                                                {{ session('contact') }}
                                             </div>
                                         @endif
                                     </div>

@@ -1,5 +1,6 @@
 @extends('users.layouts.app')
 @section('title', 'About Roy\'s Invest | 37 Years of Financial Expertise & Wealth Management')
+@section('meta_description', 'Learn about Roys Invest, a trusted financial advisory firm in Kochi offering mutual fund investments, wealth management, and expert financial planning services.')
 @section('content')
 
 <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
@@ -175,8 +176,8 @@
         <h2 class="fw-bold mb-3">Connect With Us</h2>
         <p class="mb-4" style="opacity:0.95">Your feedback helps us improve and serve you better! Stay updated on the latest financial insights by following our social media handles.</p>
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap">
-            <a href="/contact" class="btn-cta">Schedule Consultation</a>
-            <a href="https://share.google/SavHNu487o19TxNdO" target="_blank" class="btn-cta" style="background:rgba(255,255,255,0.2); color:#fff; border:1px solid rgba(255,255,255,0.5)">Google Review</a>
+            <a href="https://wa.me/918547416897?text=Hello%20Roys%20Invest,%20I%20would%20like%20to%20get%20guidance%20on%20financial%20planning%20and%20investment%20options.%20Could%20you%20please%20assist%20me%3F" target="_blank" class="btn-cta">Schedule Consultation</a>
+            <a href="https://maps.google.com/?cid=0x3b0873612a2b3ec7:0x69f612620a7438af" target="_blank" class="btn-cta" style="background:rgba(255,255,255,0.2); color:#fff; border:1px solid rgba(255,255,255,0.5)">Google Review</a>
         </div>
     </div>
 </section>
@@ -212,6 +213,13 @@
         </div>
       </div>
       <div class="col-lg-8">
+        <div>
+          @if(session('contact'))
+              <div class="alert alert-success">
+                  {{ session('contact') }}
+              </div>
+          @endif
+        </div>
         <form action="{{ route('user.contact') }}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
           @csrf
           <div class="row gy-4">

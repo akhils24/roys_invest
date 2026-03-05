@@ -35,7 +35,7 @@ class ContactController extends Controller
             'message'       => $request->input('message'),
         ]);
         Mail::to('roysinvest00@gmail.com')->send(new ContactNotificationMail($contact));
-        return redirect()->back()->with('contact','Your message has been sent. Thank you!');
+        return redirect()->back()->with('contact','Your message has been sent. Thank you!')->withFragment('contact');
     }
     public function show(contact $contact)
     {

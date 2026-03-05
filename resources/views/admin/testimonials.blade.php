@@ -23,7 +23,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">CUSTOMER QUERIES</h4>
+                        <h4 class="card-title">TESTIMONIALS</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -32,47 +32,46 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Subject</th>
-                                    <th>Message</th>
-                                    <th>Date</th>
+                                    <th>Rating</th>
+                                    <th>Review</th>
+                                    <th>Time</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tfoot>
-                                <tr>
+                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Subject</th>
-                                    <th>Message</th>
-                                    <th>Date</th>
+                                    <th>Rating</th>
+                                    <th>Review</th>
+                                    <th>Time</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @forelse ($contacts as $contact)
+                                @forelse ($testimonials as $testimonial)
                                 <tr>
-                                    <td>{{ $contact->id }}</td>
-                                    <td>{{ $contact->name }}</td>
-                                    <td>{{ $contact->email }}</td>
-                                    <td>{{ $contact->subject }}</td>
-                                    <td>{{$contact->message }}</td>
-                                    <td>{{ $contact->created_at }}</td>
-                                    <td>{{ $contact->status ? 'Read' : 'Unread' }}</td>
+                                    <td>{{ $testimonial->id }}</td>
+                                    <td>{{ $testimonial->author_name }}</td>
+                                    <td>{{ $testimonial->rating }}</td>
+                                    <td>{{ $testimonial->text }}</td>
+                                    <td>{{ $testimonial->google_relative_time ?? $testimonial->created_at->diffForHumans() }}</td>
+                                    <td>{{ $testimonial->approved==1 ? 'Approved' : 'Declined' }}</td>
                                     <td>
                                         <div class="form-button-action">
-                                            @if (! $contact->status)
-                                                <a href="{{ route('admin.statuscontact',$contact->id) }}" class="btn btn-link btn-success" datacontactoggle="tooltip" title="Mark as Read" style="padding-top: 15px;"> <i class="fa fa-check"></i> </a>
+                                            @if (! $testimonial->approved)
+                                                <a href="{{ route('admin.statustestimonial',$testimonial->id) }}" class="btn btn-link btn-success" datacontactoggle="tooltip" title="Approve" style="padding-top: 15px;"> <i class="fa fa-check"></i> </a>
+                                            @else
+                                                <a href="{{ route('admin.statustestimonial',$testimonial->id) }}" class="btn btn-link btn-danger" datacontactoggle="tooltip" title="Decline" style="padding-top: 15px;"> <i class="fa fa-times"></i> </a>
                                             @endif
                                         </div>   
                                     </td>
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="9" class="text-center">No Contacts Found</td>
+                                    <td colspan="9" class="text-center">No Testimonials Found</td>
                                 </tr>
                                 @endforelse
                             </tbody>

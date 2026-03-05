@@ -5,67 +5,91 @@
       <div>
         <h3 class="fw-bold mb-3">Dashboard</h3>
       </div>
-      {{-- <div class="ms-md-auto py-2 py-md-0">
-        <a href="/custview" class="btn btn-label-info btn-round me-2">Manage</a>
-        <a href="/register" class="btn btn-primary btn-round">Add Customer</a>
-      </div> --}}
     </div>
-
-    {{-- <div class="row">
-      <div class="col-md-4">
-        <div class="card card-round">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="card card-stats card-round">
           <div class="card-body">
-            <div class="card-head-row card-tools-still-right">
-              <div class="card-title">New Customers</div>
-              <div class="card-tools">
-                <div class="dropdown">
-                  <button class="btn btn-icon btn-clean me-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                    <i class="fas fa-ellipsis-h"></i>
-                  </button>
+            <div class="row">
+              <div class="col-5">
+                <div class="icon-big text-center">
+                  <i class="icon-layers text-warning"></i>
                 </div>
               </div>
-            </div>
-            <div class="card-list py-4">
-                <div class="item-list">
-                  <div class="avatar">
-                    <span class="avatar-title rounded-circle border border-white" >AS
-                    </span>
-                  </div>
-                  <div class="info-user ms-3">
-                    <div class="username">Akhil </div>
-                    <div class="status">Active</div>
-                  </div>
-                  <button class="btn btn-icon btn-link op-8 me-1">
-                    <i class="far fa-envelope"></i>
-                  </button>
-                  <button class="btn btn-icon btn-link btn-danger op-8">
-                    <i class="fas fa-ban"></i>
-                  </button>
+              <div class="col-7 col-stats">
+                <div class="numbers">
+                  <p class="card-category">Blogs</p>
+                  <h4 class="card-title">{{ $stats['blogsCount'] }}</h4>
                 </div>
-              <div class="item-list">
-                <div class="avatar">
-                  <span class="avatar-title rounded-circle border border-white" >NO</span >
-                </div>
-                <div class="info-user ms-3">
-                  <div class="username">No Customers</div>
-                  <div class="status"></div>
-                </div>
-                <button class="btn btn-icon btn-link op-8 me-1">
-                  <i class="far fa-envelope"></i>
-                </button>
-                <button class="btn btn-icon btn-link btn-danger op-8">
-                  <i class="fas fa-ban"></i>
-                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-sm-6 col-md-3">
+        <div class="card card-stats card-round">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-5">
+                <div class="icon-big text-center">
+                  <i class="icon-wallet text-success"></i>
+                </div>
+              </div>
+              <div class="col-7 col-stats">
+                <div class="numbers">
+                  <p class="card-category">Services</p>
+                  <h4 class="card-title">{{ $stats['servicesCount'] }}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="card card-stats card-round">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-5">
+                <div class="icon-big text-center">
+                  <i class="icon-folder-alt text-danger"></i>
+                </div>
+              </div>
+              <div class="col-7 col-stats">
+                <div class="numbers">
+                  <p class="card-category">Sub-Services</p>
+                  <h4 class="card-title">{{ $stats['subservicesCount'] }}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="card card-stats card-round">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-5">
+                <div class="icon-big text-center">
+                  <i class="icon-speech text-primary"></i>
+                </div>
+              </div>
+              <div class="col-7 col-stats">
+                <div class="numbers">
+                  <p class="card-category">Customer Queries</p>
+                  <h4 class="card-title">{{ $stats['contactsCount'] }}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
         <div class="card card-round">
           <div class="card-header">
             <div class="card-head-row card-tools-still-right">
-              <div class="card-title">Transaction History</div>
+              <div class="card-title">Customer Queries</div>
               <div class="card-tools">
                 <div class="dropdown">
                   <button class="btn btn-icon btn-clean me-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
@@ -81,32 +105,39 @@
               <table class="table align-items-center mb-0">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">Payment Number</th>
-                    <th scope="col" class="text-end">Date & Time</th>
-                    <th scope="col" class="text-end">Amount</th>
-                    <th scope="col" class="text-end">Status</th>
+                    <th scope="col" >Sl No.</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Status</th>
                   </tr>
                 </thead>
                 <tbody>
+                  @forelse ($contacts as $contact)
                     <tr>
-                      <th scope="row">
-                        <button class="btn btn-icon btn-round btn-success btn-sm me-2" >
-                          <i class="fa fa-check"></i>
-                        </button> Payment from #
-                      </th>
-                      <td class="text-end">12/25/2003</td>
-                      <td class="text-end">$2500</td>
+                      <td>{{$contact->id}}</td>
+                      <td>{{$contact->email}}</td>
+                      <td>{{$contact->subject}}</td>
+                      <td>{{$contact->message}}</td>
                       <td class="text-end">
-                        <span class="badge badge-success">Completed</span>
-                      </td>
+                        <span class="badge {{ $contact->status ? 'badge-success' : 'badge-danger' }}">
+                            {{ $contact->status ? 'Read' : 'Unread' }}
+                        </span>
+                    </td>
                     </tr>
+                  @empty
+                    <tr>
+                      <td colspan="5" class="text-center">No customer queries found.</td>
+                    </tr>
+                  @endforelse
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
+    
   </div>
 @endsection
       

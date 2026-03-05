@@ -112,7 +112,6 @@
   </div>
 </section>
 
-<!-- Testimonials Section -->
 <section id="testimonials" class="testimonials section light-background">
 
   <div class="container section-title" data-aos="fade-up">
@@ -140,14 +139,14 @@
     </div>
 
     <div class="text-center mt-3">
-      <a href="#" id="more-reviews-link" class="read-more">
+      <a href="https://maps.google.com/?cid=0x3b0873612a2b3ec7:0x69f612620a7438af" id="more-reviews-link" target="_blank" class="read-more">
         <span>See more reviews on Google</span><i class="bi bi-arrow-right"></i>
       </a>
     </div>
 
-    <div class="testimonial-pagination-wrapper text-center mt-3">
+    {{-- <div class="testimonial-pagination-wrapper text-center mt-3">
       <div class="swiper-pagination"></div>
-    </div>
+    </div> --}}
   </div>
 
   <style>
@@ -164,7 +163,7 @@
     }
     .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
     .testimonial-text {
-      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+      display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;
     }
     .skeleton-avatar, .skeleton-line {
       background: linear-gradient(90deg, #f2f2f2, #e6e6e6);
@@ -193,7 +192,7 @@
       const starsHtml = (rating = 5) =>
         Array.from({ length: 5 }, (_, i) =>
           `<svg width="14" height="14" viewBox="0 0 24 24"
-            ${i < rating ? 'fill="currentColor"' : 'fill="none" stroke="currentColor"'}
+            ${i < rating ? 'fill="currentColor"' : 'fill="none" stroke="currentColor"'} 
           ><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.402 8.168L12 18.896l-7.336 3.87
           1.402-8.168L.132 9.21l8.2-1.192z"/></svg>`
         ).join('');
@@ -223,7 +222,6 @@
           loop: slideCount > 3,
           speed: 600,
           autoplay: { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
-          pagination: { el: '.swiper-pagination', clickable: true },
           breakpoints: {
             768: { slidesPerView: 2 },
             992: { slidesPerView: 3 },
@@ -237,7 +235,7 @@
         let data = { reviews: [], provider_url: null };
 
         try {
-          const res = await fetch("{{ url('/api/google-reviews') }}");
+          const res = await fetch("{{ route('user.testimonials') }}");
           if (!res.ok) throw new Error('Network Error');
           data = await res.json();
           console.log('✅ Loaded reviews:', data);
@@ -403,6 +401,13 @@
         </div>
       </div>
       <div class="col-lg-8">
+        <div>
+          @if(session('contact'))
+              <div class="alert alert-success">
+                  {{ session('contact') }}
+              </div>
+          @endif
+        </div>
         <form action="{{ route('user.contact') }}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
           @csrf
           <div class="row gy-4">
@@ -430,4 +435,76 @@
     </div>
   </div>
 </section>
- @endsection
+
+<section id="testimonial-form" class="contact section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Share Your Experience</h2>
+    <p>Let us know how Roys Invest helped you — your review builds trust with others.</p>
+  </div>
+  <div class="container" data-aos="fade" data-aos-delay="100">
+    <div class="row gy-4">
+      <!-- LEFT SIDE → MAP -->
+      <div class="col-lg-4">
+        <div class="map-container rounded shadow-sm overflow-hidden" style="height:100%; min-height:420px;">
+          <iframe style="filter: grayscale(10%); contrast(1.05);" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.668020081527!2d76.35560431101673!3d9.961554173653111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873612a2b3ec7%3A0x69f612620a7438af!2sRoy&#39;s%20Invest!5e0!3m2!1sen!2sin!4v1772378742269!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <!-- RIGHT SIDE → FORM -->
+      <div class="col-lg-8">
+        <div>
+          @if(session('testimonial'))
+              <div class="alert alert-success">
+                  {{ session('testimonial') }}
+              </div>
+          @endif
+        </div>
+        <form action="{{ route('testimonials.store') }}" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          @csrf
+          <div class="row gy-4">
+            <div class="col-md-6">
+              <input type="text" name="author_name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+              <label class="form-label mb-0 me-2">Rating</label>
+              <div class="star-rating">
+                @for($i=5;$i>=1;$i--)
+                  <input type="radio" name="rating" id="star{{$i}}" value="{{$i}}" required>
+                  <label for="star{{$i}}">★</label>
+                @endfor
+              </div>
+            </div>
+            <div class="col-md-12">
+              <textarea name="text" rows="6" class="form-control" placeholder="Your Review" required></textarea>
+            </div>
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-success">Submit Review</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <style>
+    .star-rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      font-size: 28px;
+    }
+    .star-rating input {
+      display: none;
+    }
+    .star-rating label {
+      color: #ddd;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .star-rating input:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: #16a34a; /* green */
+    }
+  </style>
+</section>
+
+@endsection
